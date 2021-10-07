@@ -4,11 +4,12 @@
 
 PROMPT='[ Bootstrap ]'
 
-source .exports
+# Exported variables
+# source .exports
 
 # Initialize a few things
 init () {
-  echo_with_prompt "Making a Projects folder in $PATH_TO_PROJECTS if it doesn't already exist"
+	echo_with_prompt "Making a Projects folder in $PATH_TO_PROJECTS if it doesn't already exist"
 	mkdir -p "$PATH_TO_PROJECTS"
 	echo_with_prompt "Making a Playground folder in $PATH_TO_PLAYGROUND if it doesn't already exist"
 	mkdir -p "$PATH_TO_PLAYGROUND"
@@ -20,17 +21,17 @@ init () {
 # Is this where rsync shines?
 # TODO - add support for -f and --force
 link () {
-  for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|\.gitmodules|.*.md' ) ; do
-    # Silently ignore errors here because the files may already exist
-    ln -sv "$PWD/$file" "$HOME" || true
-  done
+	for file in $( ls -A | grep -vE '\.exclude*|\.git$|\.gitignore|\.gitmodules|.*.md' ) ; do
+		# Silently ignore errors here because the files may already exist
+		ln -sv "$PWD/$file" "$HOME" || true
+	done
 }
 
 # TODO rewrite this to check for os=unknown, use the execute_func_with_prompt wrapper, etc
 install_tools () {
-  local os=$(get_os)
+	local os=$(get_os)
 	if [ "$os" = 'darwin' ] ; then
-    echo_with_prompt "Detected OS macOS"
+		echo_with_prompt "Detected OS macOS"
 		echo_with_prompt "This utility will install useful utilities using Homebrew"
 		echo_with_prompt "Proceed? (y/n)"
 		read resp
@@ -46,7 +47,7 @@ install_tools () {
 	fi
 
 	if [ "$os" = 'debian' ] ; then
-    echo_with_prompt "Detected OS $os"
+		echo_with_prompt "Detected OS $os"
 		echo_with_prompt "This utility will install useful utilities using apt (this has been tested on Debian buster)"
 		echo_with_prompt "Proceed? (y/n)"
 		read resp
@@ -63,13 +64,13 @@ install_tools () {
 }
 
 bootstrap_vim() {
-  # TODO consider sourcing this file
-  "$( pwd )/vim.bootstrap.exclude.sh"
+	# TODO consider sourcing this file
+	"$( pwd )/vim.bootstrap.exclude.sh"
 }
 
 bootstrap_crontab() {
-  # TODO consider sourcing this file
-  "$( pwd )/crontab.sh"
+	# TODO consider sourcing this file
+	"$( pwd )/crontab.sh"
 }
 
 #init
@@ -77,6 +78,9 @@ bootstrap_crontab() {
 #install_tools
 #execute_func_with_prompt bootstrap_vim "bootstrap vim with plugins and the like"
 execute_func_with_prompt bootstrap_crontab "bootstrap the crontab"
+
+. ./vim.sh
+echo $NVIM_DIR
 
 # Hack to make sure this script always exits successfully
 # Since the user may choose to cancel a step here and that is cool
