@@ -80,7 +80,6 @@ bootstrap_crontab() {
 execute_func_with_prompt bootstrap_crontab "bootstrap the crontab"
 
 . ./vim.sh
-echo $NVIM_DIR
 
 # Hack to make sure this script always exits successfully
 # Since the user may choose to cancel a step here and that is cool
