@@ -2,7 +2,7 @@ return {
   "folke/todo-comments.nvim",
   after = "nvim-treesitter",
   config = function()
-    require("plugin.todo-comments.config")
-    require("plugin.todo-comments.keymap")
+    require("plugins.todo-comments.config")
+    require("plugins.todo-comments.keymap")
   end,
 }

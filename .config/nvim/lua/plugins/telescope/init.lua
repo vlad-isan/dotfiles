@@ -13,9 +13,9 @@ return {
     },
   },
   config = function()
-    require("plugin.telescope.config")
-    require("plugin.telescope.event")
-    require("plugin.telescope.keymap")
+    require("plugins.telescope.config")
+    require("plugins.telescope.event")
+    require("plugins.telescope.keymap")
   end,
   cmd = "Telescope",
   keys = {

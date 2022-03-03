@@ -1,8 +1,8 @@
 return {
   "phaazon/hop.nvim",
   config = function()
-    require("plugin.hop.config")
-    require("plugin.hop.keymap")
+    require("plugins.hop.config")
+    require("plugins.hop.keymap")
   end,
   cmd = {
     "HopWord",

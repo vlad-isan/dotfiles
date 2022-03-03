@@ -1,7 +1,7 @@
 return {
   "karb94/neoscroll.nvim",
   config = function()
-    require("plugin.neoscroll.config")
+    require("plugins.neoscroll.config")
   end,
   keys = {
     "<C-u>",

@@ -64,8 +64,8 @@ local config = {
   on_attach = function(client, bufnr)
     require("lsp.attach").with.all(client, bufnr)
     setup.add_commands()
-    require("plugin.jdtls.command").attach()
-    require("plugin.jdtls.keymap").attach(bufnr)
+    require("plugins.jdtls.command").attach()
+    require("plugins.jdtls.keymap").attach(bufnr)
   end,
   flags = {
     allow_incremental_sync = true,

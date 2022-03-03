@@ -19,7 +19,7 @@ end
 ---@param alignment StripAlignment
 ---@return table component
 function M.strip(alignment)
-  local char = require("helper.sign").line.THIN[alignment or "left"]
+  local char = require("helpers.sign").line.THIN[alignment or "left"]
   return {
     function()
       return char
@@ -28,10 +28,10 @@ function M.strip(alignment)
   }
 end
 
-M.mode = require("plugin.lualine.component.mode")
-M.file = require("plugin.lualine.component.file")
-M.state = require("plugin.lualine.component.state")
-M.git = require("plugin.lualine.component.git")
-M.lsp = require("plugin.lualine.component.lsp")
+M.mode = require("plugins.lualine.component.mode")
+M.file = require("plugins.lualine.component.file")
+M.state = require("plugins.lualine.component.state")
+M.git = require("plugins.lualine.component.git")
+M.lsp = require("plugins.lualine.component.lsp")
 
 return M

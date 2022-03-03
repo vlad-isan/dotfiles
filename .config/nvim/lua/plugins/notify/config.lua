@@ -1,5 +1,5 @@
 local notify = require("notify")
-local sign = require("helper.sign").diagnostic
+local sign = require("helpers.sign").diagnostic
 local config = {}
 
 config.max_width = function()

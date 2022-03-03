@@ -1,6 +1,6 @@
 local gitsigns = require("gitsigns")
-local sign = require("helper.sign")
-local formatter = require("plugin.gitsigns.formatter")
+local sign = require("helpers.sign")
+local formatter = require("plugins.gitsigns.formatter")
 
 gitsigns.setup({
   signs = {
@@ -15,7 +15,7 @@ gitsigns.setup({
     require("lib.command").add("Blame", function()
       gitsigns.blame_line({ full = true })
     end, { buf = bufnr })
-    require("plugin.gitsigns.keymap").attach(bufnr)
+    require("plugins.gitsigns.keymap").attach(bufnr)
   end,
   preview_config = { border = "rounded" },
   current_line_blame = true,

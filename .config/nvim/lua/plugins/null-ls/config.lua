@@ -2,7 +2,7 @@ local null_ls = require("null-ls")
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local action = null_ls.builtins.code_actions
-local condition = require("plugin.null-ls.condition")
+local condition = require("plugins.null-ls.condition")
 local code_w_msg = "[#{c}] #{m}"
 local plaintext = { "gitcommit", "markdown", "txt" }
 

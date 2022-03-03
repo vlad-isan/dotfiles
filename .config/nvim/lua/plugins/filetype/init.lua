@@ -1,6 +1,6 @@
 return {
   "nathom/filetype.nvim",
   config = function()
-    require("plugin.filetype.config")
+    require("plugins.filetype.config")
   end,
 }

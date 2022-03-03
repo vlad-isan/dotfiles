@@ -1,7 +1,7 @@
 return {
   "mvllow/modes.nvim",
   config = function()
-    require("plugin.modes.config")
+    require("plugins.modes.config")
   end,
   event = { "BufReadPre", "BufNewFile" },
 }

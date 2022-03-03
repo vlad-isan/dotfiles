@@ -1,8 +1,8 @@
 local lualine = require("lualine")
-local align = require("plugin.lualine.component.util.alignment")
+local align = require("plugins.lualine.component.util.alignment")
 local custom = {
-  extension = require("plugin.lualine.extension"),
-  component = require("plugin.lualine.component"),
+  extension = require("plugins.lualine.extension"),
+  component = require("plugins.lualine.component"),
 }
 local mode = custom.component.mode
 local file = custom.component.file
@@ -16,7 +16,7 @@ local strip = {
 local config = {}
 
 config.options = {
-  theme = require("plugin.themes.lualine"),
+  theme = require("plugins.themes.lualine"),
   component_separators = "",
   section_separators = "",
   disabled_filetypes = { "Outline" },

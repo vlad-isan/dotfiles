@@ -17,7 +17,7 @@ opt.formatoptions:remove({ "t", "o", "2" })
 opt.guicursor = "n-c:hor50,i-ci-ve:ver25"
 opt.hidden = true -- enable switching unsaved buffer
 opt.ignorecase = true
---opt.laststatus = 0 -- disable statusline
+opt.laststatus = 0 -- disable statusline
 opt.nrformats:append({ "alpha" }) -- increment/decrement for alphabet
 opt.number = true
 opt.numberwidth = 1

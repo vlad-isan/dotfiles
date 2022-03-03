@@ -1,7 +1,7 @@
 return {
   "lukas-reineke/headlines.nvim",
   config = function()
-    require("plugin.headlines.config")
+    require("plugins.headlines.config")
   end,
   ft = "markdown",
 }

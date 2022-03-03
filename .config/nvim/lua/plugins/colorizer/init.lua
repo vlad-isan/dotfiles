@@ -1,8 +1,8 @@
 local M = {
   "norcalli/nvim-colorizer.lua",
   config = function()
-    require("plugin.colorizer.config")
-    require("plugin.colorizer.keymap")
+    require("plugins.colorizer.config")
+    require("plugins.colorizer.keymap")
   end,
   cmd = {
     "ColorizerAttachToBuffer",

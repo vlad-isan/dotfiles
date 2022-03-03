@@ -2,8 +2,8 @@ return {
   "folke/trouble.nvim",
   requires = { "kyazdani42/nvim-web-devicons" },
   config = function()
-    require("plugin.trouble.config")
-    require("plugin.trouble.keymap")
+    require("plugins.trouble.config")
+    require("plugins.trouble.keymap")
   end,
   cmd = {
     "Trouble",

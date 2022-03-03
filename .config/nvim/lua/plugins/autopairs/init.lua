@@ -1,7 +1,7 @@
 return {
   "windwp/nvim-autopairs",
   config = function()
-    require("plugin.autopairs.config")
+    require("plugins.autopairs.config")
   end,
   event = "InsertCharPre",
 }

@@ -1,7 +1,7 @@
 return {
   "j-hui/fidget.nvim",
   config = function()
-    require("plugin.fidget.config")
+    require("plugins.fidget.config")
   end,
   event = { "BufNew", "BufNewFile", "BufRead" },
   module = "fidget",

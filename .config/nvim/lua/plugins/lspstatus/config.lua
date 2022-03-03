@@ -1,4 +1,4 @@
-local sign = require("helper.sign").diagnostic
+local sign = require("helpers.sign").diagnostic
 
 local spinners = {
   full = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" },

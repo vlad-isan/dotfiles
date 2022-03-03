@@ -1,4 +1,4 @@
 return {
-  help = require("plugin.lualine.extension.help"),
-  terminal = require("plugin.lualine.extension.terminal")
+  help = require("plugins.lualine.extension.help"),
+  terminal = require("plugins.lualine.extension.terminal")
 }

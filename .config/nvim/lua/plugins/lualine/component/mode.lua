@@ -1,4 +1,4 @@
-local fmt = require("plugin.lualine.component.util.fmt")
+local fmt = require("plugins.lualine.component.util.fmt")
 
 local modes = {
   n = "NRM",

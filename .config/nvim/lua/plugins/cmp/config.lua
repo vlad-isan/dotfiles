@@ -12,11 +12,11 @@ cmp.setup({
   },
   preselect = cmp.PreselectMode.None,
   documentation = {
-    border = require("helper.border").rounded,
+    border = require("helpers.border").rounded,
     maxwidth = 80,
     maxheight = 12,
   },
-  mapping = require("plugin.cmp.keymap").setup(cmp, snippet),
+  mapping = require("plugins.cmp.keymap").setup(cmp, snippet),
   formatting = {
     format = function(entry, vim_item)
       vim_item.kind = require("lsp.ui.completion").kind({

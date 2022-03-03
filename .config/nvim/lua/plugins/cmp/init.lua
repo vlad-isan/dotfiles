@@ -13,7 +13,7 @@ return {
     { "rafamadriz/friendly-snippets", event = { "BufRead" } },
   },
   config = function()
-    require("plugin.cmp.config")
+    require("plugins.cmp.config")
   end,
   event = { "InsertEnter", "CmdlineEnter" },
   module = "cmp",

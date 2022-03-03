@@ -1,7 +1,7 @@
 return {
   "b3nj5m1n/kommentary",
   config = function()
-    require("plugin.kommentary.config")
+    require("plugins.kommentary.config")
   end,
   setup = function()
     vim.g.kommentary_create_default_mappings = false

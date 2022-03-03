@@ -13,7 +13,7 @@ require("rust-tools").setup({
     },
     on_attach = function(client, bufnr)
       require("lsp.attach").with.all(client, bufnr)
-      require("plugin.rust-tools.keymap").attach()
+      require("plugins.rust-tools.keymap").attach()
     end,
   },
 })

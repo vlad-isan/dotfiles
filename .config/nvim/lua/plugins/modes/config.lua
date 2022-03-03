@@ -1,4 +1,4 @@
-local palette = require("plugin.themes.palette")
+local palette = require("plugins.themes.palette")
 local config = {}
 
 config.colors = {
