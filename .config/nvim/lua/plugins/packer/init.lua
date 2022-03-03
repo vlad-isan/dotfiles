@@ -23,7 +23,7 @@ local plugins = {
     --{ "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" },
     --{ "b0o/schemastore.nvim", module = "schemastore" },
     --require("plugin.filetype"),
-    require("plugin.treesitter"),
+    require("plugins.treesitter"),
     --require("plugin.lspconfig"),
     --require("plugin.clangdext"),
     --require("plugin.jdtls"),
@@ -55,6 +55,6 @@ local plugins = {
 }
 
 local packer = require("packer")
-local config = require("plugin.packer.config")
+local config = require("plugins.packer.config")
 packer.init(config.init)
 packer.startup(config.use(plugins))
