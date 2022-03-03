@@ -1,3 +1,3 @@
+require("settings")
 require("plugins");
-require("keybinds");
-require("options");
+require("keymaps");

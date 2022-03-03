@@ -1,0 +1,27 @@
+local global = vim.g
+
+global.mapleader = " "
+--global.loaded_python3_provider = 0
+--global.loaded_python_provider = 0
+--global.loaded_ruby_provider = 0
+--global.loaded_node_provider = 0
+--global.loaded_perl_provider = 0
+--global.loaded_spec = 1
+--global.loaded_gzip = 1
+--global.loaded_tar = 1
+--global.loaded_tarPlugin = 1
+--global.loaded_zip = 1
+--global.loaded_zipPlugin = 1
+--global.loaded_getscript = 1
+--global.loaded_getscriptPlugin = 1
+--global.loaded_vimball = 1
+--global.loaded_vimballPlugin = 1
+--global.loaded_matchit = 1
+--global.loaded_matchparen = 1
+--global.loaded_2html_plugin = 1
+--global.loaded_logiPat = 1
+--global.loaded_rrhelper = 1
+--global.loaded_netrw = 1
+--global.loaded_netrwPlugin = 1
+--global.loaded_netrwSettings = 1
+--global.loaded_netrwFileHandlers = 1
