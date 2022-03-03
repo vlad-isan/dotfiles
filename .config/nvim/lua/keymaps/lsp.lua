@@ -12,7 +12,7 @@ function M.attach(bufnr)
   local maps = {}
 
   if has(":LspFormatSync") then
-    maps["Format"] = lead("<CR>", "n"):exec("LspFormatSeq<CR><Cmd>update")
+    maps["Format"] = lead("f", "n"):exec("LspFormatSeq<CR><Cmd>update")
   end
 
   if has(":CodelensRun") then
@@ -23,14 +23,15 @@ function M.attach(bufnr)
   maps["wr"] = lead("wr", "n"):lua("vim.lsp.buf.remove_workspace_folder()")
 
   local capabilityKeys = {
-    { key = "[rn", mode = "n", cmd = "Rename" },
-    { key = "[s", mode = "n", cmd = "SignatureHelp" },
+    { key = "<Leader>rn", mode = "n", cmd = "Rename" },
+    { key = "<C-k>", mode = "n", cmd = "SignatureHelp" },
     { key = "K", mode = "n", cmd = "Hover" },
-    { key = "]D", mode = "n", cmd = "GoToDeclaration" },
-    { key = "[D", mode = "n", cmd = "GoToDefinition" },
-    { key = "[T", mode = "n", cmd = "GoToTypeDefinition" },
-    { key = "]ll", mode = "n", cmd = "ListImplementation" },
-    { key = "[ll", mode = "n", cmd = "ListReferences" },
+    { key = "gD", mode = "n", cmd = "GoToDeclaration" },
+    { key = "gd", mode = "n", cmd = "GoToDefinition" },
+    { key = "<Leader>D", mode = "n", cmd = "GoToTypeDefinition" },
+    { key = "<Leader>ca", mode = "n", cmd = "CodeAction" },
+    { key = "gi", mode = "n", cmd = "ListImplementation" },
+    { key = "gr", mode = "n", cmd = "ListReferences" },
     { key = "]ls", mode = "n", cmd = "ListSymbols" },
     { key = "]li", mode = "n", cmd = "ListIncoming" },
     { key = "]lo", mode = "n", cmd = "ListOutgoing" },
