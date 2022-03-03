@@ -1,2 +1,3 @@
-require("install_plugins");
 require("plugins");
+require("keybinds");
+require("options");
