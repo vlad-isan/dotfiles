@@ -79,7 +79,11 @@ bootstrap_crontab() {
 #execute_func_with_prompt bootstrap_vim "bootstrap vim with plugins and the like"
 execute_func_with_prompt bootstrap_crontab "bootstrap the crontab"
 
-. ./vim.sh
+# Configure nvim
+. ./nvim.sh
+
+# Configure kitty
+. ./kitty.sh
 
 # Hack to make sure this script always exits successfully
 # Since the user may choose to cancel a step here and that is cool
