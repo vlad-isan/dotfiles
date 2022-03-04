@@ -37,11 +37,11 @@ function M.attach(bufnr)
     { key = "]lo", mode = "n", cmd = "ListOutgoing" },
   }
   local diagnosticKeys = {
-    { key = "<Leader>d", mode = "n", cmd = "ShowOnCursor" },
-    { key = "<Leader>D", mode = "n", cmd = "ShowInLine" },
+    { key = "<Leader>e", mode = "n", cmd = "ShowOnCursor" },
+    { key = "<Leader>E", mode = "n", cmd = "ShowInLine" },
     { key = "[d", mode = "n", cmd = "GoToPrev" },
     { key = "]d", mode = "n", cmd = "GoToNext" },
-    { key = "<Leader>ll", mode = "n", cmd = "LocList" },
+    { key = "<Leader>q", mode = "n", cmd = "LocList" },
   }
 
   for _, v in ipairs(capabilityKeys) do
