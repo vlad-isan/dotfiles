@@ -1,4 +1,4 @@
-local THEME = os.getenv("NVIM_COLORSCHEME") or "gruvbox"
+local THEME = os.getenv("NVIM_COLORSCHEME") or "tokyonight"
 local module = ("plugins.themes.%s.palette"):format(THEME)
 local ok, result = pcall(require, module)
 

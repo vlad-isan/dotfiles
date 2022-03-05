@@ -12,12 +12,29 @@ npm i -g  @angular/language-server \
           cssmodules-language-server \
           dockerfile-language-server-nodejs \
           dot-language-server \
-          vscode-langservers-extracted \
+          emmet-ls \
+          eslint_d \
+          intelephense \
           graphql-language-service-cli \
           typescript \
-          typescript-language-server
+          typescript-language-server \
+          vls \
+          vscode-css-languageservice \
+          vscode-langservers-extracted
 
-brew install bash-language-server
+brew install  bash-language-server \
+              deno \
+              gopls \
+              haskell-language-server \
+              kotlin-language-server \
+              lua-language-server \
+              lua \
+              luarocks \
+              pyright \
+              rust \
+              yaml-language-server
+
+cargo install taplo-lsp
 
 pip3 install cmake-language-server
 
