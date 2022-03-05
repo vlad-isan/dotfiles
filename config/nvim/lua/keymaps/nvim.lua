@@ -79,7 +79,7 @@ keymap.bind({
   lead("-", "n"):send("<C-w>-"),
 
   -- open terminal
-  on("<M-`>"):exec("split term://$SHELL"),
+  lead("`"):exec("split term://$SHELL<BAR>resize 20"),
 
   --- search Behaviour
   -- Map "/" to Search current selected text
@@ -93,11 +93,11 @@ keymap.bind({
     :with(opt():noremap():expr()),
 
   -- move Line
-  on("<C-j>", "n"):exec("m .+1"),
-  on("<C-j>", "i"):exec("m .+1"),
+  on("<A-j>", "n"):exec("m .+1"),
+  on("<A-j>", "i"):exec("m .+1"),
   on("J", "v"):send(":m '>+1<CR>gv=gv"):with(opt():noremap():silent()),
-  on("<C-k>", "n"):exec("m .-2"),
-  on("<C-k>", "i"):exec("m .-2"),
+  on("<A-k>", "n"):exec("m .-2"),
+  on("<A-k>", "i"):exec("m .-2"),
   on("K", "v"):send(":m '<-2<CR>gv=gv"):with(opt():noremap():silent()),
 
   -- join lines without changing cursor position

@@ -47,6 +47,7 @@ telescope.setup({
   },
   pickers = {
     find_files = {
+      hidden = true,
       layout_config = { height = 0.60 },
       path_display = { "smart" },
       theme = "ivy",
@@ -102,8 +103,9 @@ telescope.setup({
   },
   extensions = {
     file_browser = {
-      prompt_prefix = "   ",
+      hidden = true,
       hide_parent_dir = true,
+      prompt_prefix = "   ",
     },
     fzf = {},
   },
