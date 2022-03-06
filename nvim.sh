@@ -31,6 +31,7 @@ brew install --cask \
 brew install  ack \
               bash-language-server \
               deno \
+              fd \
               gopls \
               haskell-language-server \
               kotlin-language-server \
