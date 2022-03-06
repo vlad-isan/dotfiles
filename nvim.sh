@@ -37,6 +37,7 @@ brew install  bash-language-server \
               lua \
               luarocks \
               pyright \
+              ripgrep \
               rust \
               yaml-language-server
 
