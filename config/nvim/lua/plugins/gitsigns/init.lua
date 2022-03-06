@@ -3,9 +3,7 @@ local M = {
   requires = { "nvim-lua/plenary.nvim" },
   config = function()
     require("plugins.gitsigns.config")
-  end,
-  keys = "gs",
-  module = "gitsigns",
+  end
 }
 
 return M

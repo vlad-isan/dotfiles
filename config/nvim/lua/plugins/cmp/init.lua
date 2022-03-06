@@ -14,7 +14,5 @@ return {
   },
   config = function()
     require("plugins.cmp.config")
-  end,
-  event = { "InsertEnter", "CmdlineEnter" },
-  module = "cmp",
+  end
 }

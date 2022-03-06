@@ -2,10 +2,10 @@ vim.cmd("packadd packer.nvim")
 
 local plugins = {
   { "nvim-lua/plenary.nvim", module = "plenary" },
-  { "ray-x/lsp_signature.nvim", module = "lsp_signature" },
-  { "yamatsum/nvim-nonicons", module = "nvim-nonicons" },
-  { "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" },
-  { "b0o/schemastore.nvim", module = "schemastore" },
+  { "ray-x/lsp_signature.nvim" },
+  { "yamatsum/nvim-nonicons", requires = { { "kyazdani42/nvim-web-devicons" } } },
+  { "jose-elias-alvarez/nvim-lsp-ts-utils" },
+  { "b0o/schemastore.nvim" },
   require("plugins.filetype"),
   require("plugins.treesitter"),
   require("plugins.lspconfig"),
@@ -36,7 +36,7 @@ local plugins = {
   require("plugins.notify"),
   require("plugins.fidget"),
   require("plugins.fugitive"),
-  { "baskerville/vim-sxhkdrc", ft = "sxhkdrc" },
+  { "baskerville/vim-sxhkdrc" },
 }
 
 local packer = require("packer")

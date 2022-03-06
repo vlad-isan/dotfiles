@@ -3,14 +3,7 @@ local M = {
   config = function()
     require("plugins.colorizer.config")
     require("plugins.colorizer.keymap")
-  end,
-  cmd = {
-    "ColorizerAttachToBuffer",
-    "ColorizerDetachFromBuffer",
-    "ColorizerReloadAllBuffers",
-    "ColorizerToggle",
-  },
-  keys = { "n", "<Leader>cc" },
+  end
 }
 
 return M

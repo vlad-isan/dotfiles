@@ -3,31 +3,5 @@ return {
   requires = { "nvim-lua/plenary.nvim" },
   config = function()
     require("plugins.null-ls.config")
-  end,
-  ft = {
-    "c",
-    "cpp",
-    "css",
-    "fish",
-    "gitcommit",
-    "gitrebase",
-    "go",
-    "gomod",
-    "haskell",
-    "html",
-    "javascript",
-    "javascriptreact",
-    "json",
-    "lua",
-    "markdown",
-    "php",
-    "python",
-    "scss",
-    "sh",
-    "svelte",
-    "txt",
-    "typescript",
-    "typescriptreact",
-    "vue",
-  },
+  end
 }

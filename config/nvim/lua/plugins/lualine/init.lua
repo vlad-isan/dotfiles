@@ -9,7 +9,5 @@ return {
   },
   config = function()
     require("plugins.lualine.config")
-  end,
-  event = { "BufReadPost", "BufNewFile" },
-  module = "lualine",
+  end
 }

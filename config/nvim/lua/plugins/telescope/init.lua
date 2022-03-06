@@ -16,28 +16,5 @@ return {
     require("plugins.telescope.config")
     require("plugins.telescope.event")
     require("plugins.telescope.keymap")
-  end,
-  cmd = "Telescope",
-  keys = {
-    "[ld",
-    "[lD",
-    "[ls",
-    "[lS",
-    "<Leader>fb",
-    "<Leader>ff",
-    "<Leader>fg",
-    "<Leader>fh",
-    "<Leader>fe",
-    "<Leader>ft",
-    "<Leader>lo",
-    { "n", "ca" },
-    "<Leader>ca",
-    "<Leader>e",
-    "<Leader>ft",
-    "<Leader>gf",
-    "<Leader>gb",
-    "<Leader>gc",
-    "<Leader>gs",
-    "<Leader>m",
-  },
+  end
 }
