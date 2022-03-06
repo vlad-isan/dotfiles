@@ -28,7 +28,8 @@ brew install --cask \
               font-fira-code \
               font-sf-mono-nerd-font
 
-brew install  bash-language-server \
+brew install  ack \
+              bash-language-server \
               deno \
               gopls \
               haskell-language-server \
