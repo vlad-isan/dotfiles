@@ -38,7 +38,7 @@ keymap.bind({
   --- buffer
   -- next & previous buffer
   on("<S-Tab>", "n"):exec("bprevious"),
-  on("<Tab>", "n"):exec("bnext"),
+  lead("<Tab>", "n"):exec("bnext"),
   -- close buffer without close window
   lead("bq", "n"):exec("enew<BAR>bdelete #"),
   -- delete current buffer and move to the previous buffer
@@ -63,7 +63,8 @@ keymap.bind({
 
   --- window
   -- easy next window jumping
-  on("<M-Tab>", "n"):send("<C-w>w"),
+  -- on("<M-Tab>", "n"):send("<C-w>w"),
+  lead("w", "n"):send("<C-w>w"),
   -- easy split
   lead("h", "n"):exec("split"),
   lead("v", "n"):exec("vsplit"),
