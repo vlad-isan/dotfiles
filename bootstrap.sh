@@ -38,7 +38,7 @@ install_tools () {
 		# TODO - regex here?
 		if [ "$resp" = 'y' -o "$resp" = 'Y' ] ; then
 			echo_with_prompt "Installing useful stuff using brew. This may take a while..."
-			sh brew.exclude.sh
+			. install-mac.sh
 		else
 			echo_with_prompt "Brew installation cancelled by user"
 		fi
@@ -75,7 +75,7 @@ bootstrap_crontab() {
 
 #init
 #execute_func_with_prompt link "symlink everything"
-#install_tools
+install_tools
 #execute_func_with_prompt bootstrap_vim "bootstrap vim with plugins and the like"
 execute_func_with_prompt bootstrap_crontab "bootstrap the crontab"
 
