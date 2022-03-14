@@ -1,2 +1,4 @@
-nohup kitty --session ./.config/kitty/conf.d/eurostar-session.conf &
-nohup kitty --session ./.config/kitty/conf.d/storengy-session.conf &
+#!/bin/bash
+
+./kitty-launch-eurostar-session.sh
+./kitty-launch-storengy-session.sh

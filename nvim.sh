@@ -1,3 +1,5 @@
+#!/bin/bash
+
 NVIM_DIR=$HOME/.config/nvim
 NVIM_LUA_DIR=$NVIM_DIR/lua
 

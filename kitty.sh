@@ -1,3 +1,5 @@
+#!/bin/bash
+
 KITTY_DIR=$HOME/.config/kitty
 
 mkdir -p $KITTY_DIR
