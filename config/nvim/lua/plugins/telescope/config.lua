@@ -19,6 +19,7 @@ telescope.setup({
       "%.jpg",
       "%.jpeg",
       "%.JPEG",
+      "%.min.js",
       "%.o",
       "%.out",
       "%.png",
