@@ -13,13 +13,11 @@ telescope.setup({
     dynamic_preview_title = true,
     file_ignore_patterns = {
       "%.class",
-      "%.css.map",
       "%.DS_Store",
       "%.gif",
       "%.jpg",
       "%.jpeg",
       "%.JPEG",
-      "%.min.js",
       "%.o",
       "%.out",
       "%.png",
