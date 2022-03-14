@@ -17,12 +17,17 @@ M.init = {
   },
 }
 
-function M.use(plugins)
+function M.use(plugins, packer_bootstrap)
   return function(use)
-    use({ "wbthomason/packer.nvim", opt = true })
+    use "wbthomason/packer.nvim"
     for _, plugin in ipairs(plugins) do
       use(plugin)
     end
+
+    if packer_bootstrap then
+      require('packer').sync()
+    end
+
   end
 end
 
