@@ -44,6 +44,7 @@ local plugins = {
   require("plugins.notify"),
   require("plugins.fidget"),
   require("plugins.fugitive"),
+  require("plugins.tree"),
   { "baskerville/vim-sxhkdrc" },
 }
 
