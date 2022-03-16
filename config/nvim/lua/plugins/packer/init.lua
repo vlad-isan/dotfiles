@@ -27,8 +27,8 @@ local plugins = {
   require("plugins.kommentary"),
   require("plugins.hop"),
   require("plugins.cmp"),
-  -- require("plugins.autopairs"), -- FIXME: glitch on <CR>
-  require("plugins.pears"), -- work best with treesitter
+  require("plugins.autopairs"), -- FIXME: glitch on <CR>
+  -- require("plugins.pears"), -- work best with treesitter
   require("plugins.telescope"),
   require("plugins.gitsigns"),
   require("plugins.outline"),
