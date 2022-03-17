@@ -85,6 +85,9 @@ execute_func_with_prompt bootstrap_crontab "bootstrap the crontab"
 # Configure kitty
 . ./kitty.sh
 
+# Configure ZSH
+. ./zsh.sh
+
 # Hack to make sure this script always exits successfully
 # Since the user may choose to cancel a step here and that is cool
 # TODO rethink this system :p
