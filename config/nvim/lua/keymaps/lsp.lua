@@ -37,7 +37,7 @@ function M.attach(bufnr)
     { key = "]lo", mode = "n", cmd = "ListOutgoing" },
   }
   local diagnosticKeys = {
-    { key = "<Leader>e", mode = "n", cmd = "ShowOnCursor" },
+    -- { key = "<Leader>e", mode = "n", cmd = "ShowOnCursor" },
     { key = "<Leader>E", mode = "n", cmd = "ShowInLine" },
     { key = "[d", mode = "n", cmd = "GoToPrev" },
     { key = "]d", mode = "n", cmd = "GoToNext" },
