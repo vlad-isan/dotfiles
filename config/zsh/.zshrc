@@ -146,3 +146,7 @@ bindkey -M vicmd '^v' edit-command-line
 # | SYNTAX HIGHLIGHTING |
 # +---------------------+
 . $DOTFILES/config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Enable reverse & forward search
+bindkey '^r' history-incremental-search-backward
+bindkey '^R' history-incremental-pattern-search-backward
