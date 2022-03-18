@@ -3,10 +3,11 @@ return {
   requires = {
     { "nvim-lua/plenary.nvim" },
     {
-      "nvim-telescope/telescope-file-browser.nvim",
+      "nvim-telescope/telescope-file-browser.nvim"
     },
     {
       "nvim-telescope/telescope-fzf-native.nvim",
+      run = "make"
     },
   },
   config = function()
