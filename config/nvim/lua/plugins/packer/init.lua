@@ -36,7 +36,7 @@ local plugins = {
   require("plugins.themes"),
   require("plugins.devicons"),
   require("plugins.lualine"),
-  require("plugins.colorizer"),
+  -- require("plugins.colorizer"), -- This makes everything super slow why the fuck are we using it?????
   require("plugins.modes"),
   require("plugins.todo-comments"),
   require("plugins.trouble"),
