@@ -74,7 +74,7 @@ bindkey '^Z' fg-bg
 # +--------------------+
 
 # Send notification when command line done
-. $DOTFILES/config/zsh/plugins/notifyosd.zsh
+# . $DOTFILES/config/zsh/plugins/notifyosd.zsh
 
 # +--------+
 # | PROMPT |
