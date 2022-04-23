@@ -11,10 +11,12 @@ cmp.setup({
     end,
   },
   preselect = cmp.PreselectMode.None,
-  documentation = {
-    border = require("helpers.border").rounded,
-    maxwidth = 80,
-    maxheight = 12,
+  window = {
+    documentation = {
+      border = require("helpers.border").rounded,
+      maxwidth = 80,
+      maxheight = 12,
+    }
   },
   mapping = require("plugins.cmp.keymap").setup(cmp, snippet),
   formatting = {

@@ -1,7 +1,7 @@
 local conf = require("nvim-treesitter.configs")
 
 conf.setup({
-  ensure_installed = "maintained",
+  ensure_installed = "all",
   highlight = { enable = true },
   incremental_selection = {
     enable = true,
