@@ -5,6 +5,7 @@ local servers = {
   angularls = setup.with("angular-language-server"),
   bashls = setup.with("bash-language-server"),
   clangd = require("lsp.config.clangd"),
+  cmake = setup.with("cmake-language-server"),
   cssls = setup.with("vscode-css-language-server"),
   denols = require("lsp.config.denols"),
   dockerls = setup.with("docker-langserver"),
