@@ -21,7 +21,8 @@ brew tap epk/epk
 
 brew install --cask \
               font-fira-code \
-              font-sf-mono-nerd-font
+              font-sf-mono-nerd-font \
+              trader-workstation
 
 brew install  ack \
               bash-language-server \
