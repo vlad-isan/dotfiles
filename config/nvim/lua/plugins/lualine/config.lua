@@ -16,10 +16,13 @@ local strip = {
 local config = {}
 
 config.options = {
+  icons_enabled = true,
   theme = require("plugins.themes.lualine"),
   component_separators = "",
   section_separators = "",
   disabled_filetypes = { "Outline" },
+  always_divide_middle = true,
+  globalstatus = false,
 }
 
 config.extensions = { "quickfix" }
