@@ -22,6 +22,7 @@ brew tap epk/epk
 brew install --cask \
               font-fira-code \
               font-sf-mono-nerd-font \
+              kitty \
               trader-workstation
 
 brew install  ack \
@@ -34,6 +35,7 @@ brew install  ack \
               lua-language-server \
               lua \
               luarocks \
+              neovim \
               pyright \
               ripgrep \
               rust \
