@@ -18,12 +18,14 @@ npm i -g  @angular/language-server \
           vscode-langservers-extracted
 
 brew tap epk/epk
+brew tap homebrew/cask-fonts
 
 brew install --cask \
               font-fira-code \
               font-sf-mono-nerd-font \
               kitty \
-              trader-workstation
+              trader-workstation \
+              tradingview
 
 brew install  ack \
               bash-language-server \
