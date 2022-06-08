@@ -25,6 +25,7 @@ brew install --cask \
               font-fira-code \
               font-sf-mono-nerd-font \
               kitty \
+              microsoft-remote-desktop \
               trader-workstation \
               tradingview
 
