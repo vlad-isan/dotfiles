@@ -39,6 +39,8 @@ brew install  ack \
               lua \
               luarocks \
               neovim \
+              pinentry \
+              pinentry-mac \
               pyright \
               ripgrep \
               rust \
