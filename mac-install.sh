@@ -17,6 +17,7 @@ npm i -g  @angular/language-server \
           vscode-css-languageservice \
           vscode-langservers-extracted
 
+brew update && brew upgrade && brew upgrade --cask
 brew tap epk/epk
 brew tap homebrew/cask-fonts
 
