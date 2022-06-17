@@ -187,3 +187,6 @@ export ARTIFACTORY_PASSWORD=AKCp8jQ8hZWnXmDb7LM9dpHK7GCu6jYuibgtGKMGq12oQw6xr4Fq
 export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
 export CPPFLAGS="-I/usr/local/opt/llvm/include"
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+
+. "$HOME/.cargo/env"

@@ -44,9 +44,12 @@ brew install  ack \
               pinentry-mac \
               pyright \
               ripgrep \
-              rust \
+              rustup-init \
+              rust-analyzer \
               shellcheck \
               yaml-language-server
+
+
 
 cargo install taplo-lsp
 

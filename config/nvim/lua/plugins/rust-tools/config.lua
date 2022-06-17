@@ -7,7 +7,21 @@ require("rust-tools").setup({
     handlers = require("lsp.handler").default(),
     settings = {
       ["rust-analyzer"] = {
+        assist = {
+          importGranularity = "module",
+          importPrefix = "self",
+        },
+        cargo = {
+          loadOutDirsFromCheck = true
+        },
+        -- enable clippy on save
+        checkOnSave = {
+          command = "clippy"
+        },
         hoverActions = { references = true },
+        procMacro = {
+          enable = true
+        },
         rustfmt = { enableRangeFormatting = true },
       },
     },
