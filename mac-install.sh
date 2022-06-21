@@ -49,7 +49,9 @@ brew install  ack \
               shellcheck \
               yaml-language-server
 
-
+# Change this so it only does rustup-init if it wasn't run before
+rustup-init
+rustup component add clippy
 
 cargo install taplo-lsp
 
