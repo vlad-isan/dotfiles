@@ -18,6 +18,9 @@ opt.guicursor = "n-c:hor50,i-ci-ve:ver25"
 opt.hidden = true -- enable switching unsaved buffer
 opt.ignorecase = true
 opt.laststatus = 2 -- disable statusline
+opt.list = true
+opt.listchars:append("eol:↴")
+opt.listchars:append("space:⋅")
 opt.nrformats:append({ "alpha" }) -- increment/decrement for alphabet
 opt.number = true
 opt.numberwidth = 1

@@ -46,6 +46,7 @@ local plugins = {
   require("plugins.fugitive"),
   require("plugins.tree"),
   require("plugins.toggleterm"),
+  require("plugins.indent"),
   { "baskerville/vim-sxhkdrc" },
 }
 
