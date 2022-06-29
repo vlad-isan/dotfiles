@@ -22,7 +22,7 @@ local plugins = {
   require("plugins.rust-tools"),
   require("plugins.flutter-tools"),
   require("plugins.crates"),
-  require("plugins.null-ls"),
+  -- require("plugins.null-ls"),
   require("plugins.sandwich"),
   require("plugins.kommentary"),
   require("plugins.hop"),
