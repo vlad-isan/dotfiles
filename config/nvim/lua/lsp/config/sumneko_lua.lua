@@ -1,17 +1,14 @@
-if not os.getenv("LUALS") then
-  return false
-end
-
 local setup = require("lsp.config")
-local src = os.getenv("LUALS")
-local bin = ("%s/bin/lua-language-server"):format(src)
-local main = ("%s/main.lua"):format(src)
+
+local sumneko_binary_path = vim.fn.exepath('lua-language-server')
+local sumneko_root_path = vim.fn.fnamemodify(sumneko_binary_path, ':h:h:h')
+
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
-return setup.with(bin, {
-  cmd = { bin, "-E", main },
+return setup.with("sumneko_lua", {
+  cmd = { sumneko_binary_path, "-E", sumneko_root_path .. "/main.lua" },
   settings = {
     Lua = {
       runtime = {
