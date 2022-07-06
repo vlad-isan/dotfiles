@@ -52,6 +52,8 @@ brew install  ack \
 # Change this so it only does rustup-init if it wasn't run before
 rustup-init
 rustup component add clippy
+rustup toolchain install nightly
+rustup +nightly component add miri
 
 cargo install taplo-lsp
 
