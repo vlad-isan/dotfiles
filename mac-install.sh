@@ -22,6 +22,7 @@ brew tap epk/epk
 brew tap homebrew/cask-fonts
 
 brew install --cask \
+                amethyst \
               font-fira-code \
               font-sf-mono-nerd-font \
               kitty \
