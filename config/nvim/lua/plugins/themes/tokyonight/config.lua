@@ -1,4 +1,26 @@
 local g = vim.g
+local tokyonight = require("tokyonight")
+
+
+tokyonight.setup({
+    style = "night",
+    light_style = "day",
+    transparent = false,
+    terminal_colors = true,
+    lualine_bold = false,
+    sidebars = { "qf", "help", "Outline" },
+    day_brightness = 0.3,
+    hide_inactive_statusline = false,
+    dim_inactive = false,
+    styles = {
+        comments = { italic = true },
+        keywords = { italic = true},
+        functions = {},
+        variables = {},
+        sidebars = "dark",
+        floats = "dark"
+    }
+})
 
 local config = {
   style = "night",
@@ -7,12 +29,6 @@ local config = {
   darkSidebar = false,
   sidebars = { "Outline" },
 }
-
-g.tokyonight_style = config.style
-g.tokyonight_lualine_bold = config.lualineBold
-g.tokyonight_dark_float = config.darkFloat
-g.tokyonight_dark_sidebar = config.darkSidebar
-g.tokyonight_sidebars = config.sidebars
 
 vim.cmd("colorscheme tokyonight")
 
