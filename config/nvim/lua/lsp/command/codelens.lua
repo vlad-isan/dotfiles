@@ -1,7 +1,7 @@
 local M = {}
 
 function M.attach(client)
-  if not client.resolved_capabilities.code_lens then
+  if not client.server_capabilities.code_lens then
     return nil
   end
 

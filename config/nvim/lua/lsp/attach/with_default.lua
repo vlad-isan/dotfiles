@@ -8,7 +8,7 @@ local command = {
 local ui = { diagnostic = require("lsp.ui.diagnostic") }
 
 return function(client, bufnr)
-  if client.resolved_capabilities.code_lens then
+  if client.server_capabilities.code_lens then
     vim.lsp.codelens.refresh()
   end
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")

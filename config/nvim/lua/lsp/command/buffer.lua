@@ -1,7 +1,7 @@
 local M = {}
 
 function M.attach(client)
-  local capable = client.resolved_capabilities
+  local capable = client.server_capabilities
   local command = require("lib.command")
 
   if capable.document_formatting then

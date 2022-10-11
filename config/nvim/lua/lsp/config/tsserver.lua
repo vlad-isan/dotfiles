@@ -1,6 +1,7 @@
 local setup = require("lsp.config")
+local ok, util = pcall(require, "lspconfig.util")
 
-return setup.with("typescript-language-server", {
+local config = {
   init_options = {
     hostInfo = "neovim",
     preferences = {
@@ -30,5 +31,13 @@ return setup.with("typescript-language-server", {
       })
       util.setup_client(client)
     end
-  end,
-})
+  end
+}
+
+-- if ok then
+--   config.root_dir = util.root_pattern(
+--     "package.json", "tsconfig.json"
+--   )
+-- end
+
+return setup.with("typescript-language-server", config)
