@@ -176,6 +176,10 @@ export NVM_DIR="$HOME/.nvm"
 # export PATH="$HOME/.jenv/bin:$PATH"
 # eval "$(jenv init -)"
 #end-jenv
+
+# asdf
+. $(brew --prefix asdf)/libexec/asdf.sh
+
 export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export GPG_TTY=$(tty)

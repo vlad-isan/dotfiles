@@ -2,6 +2,75 @@
 
 # Install Packer
 
+brew update && brew upgrade && brew upgrade --cask
+brew tap epk/epk
+brew tap homebrew/cask-fonts
+
+brew install --cask \
+    amethyst \
+    azure-data-studio \
+    aws-vpn-client \
+    blender \
+    discord \
+    docker \
+    firefox \
+    firefox-developer-edition \
+    font-fira-code \
+    font-sf-mono-nerd-font \
+    forticlient-vpn \
+    google-chrome \
+    java \
+    jetbrains-toolbox \
+    kitty \
+    microsoft-remote-desktop \
+    microsoft-teams \
+    mysqlworkbench \
+    obs \
+    postman \
+    signal \
+    sublime-merge \
+    sublime-text \
+    telegram \
+    trader-workstation \
+    tradingview \
+    whatsapp
+
+brew install \
+    ack \
+    asdf \
+    autoconf \
+    awscli \
+    bash-language-server \
+    boost \
+    cmake \
+    curl \
+    deno \
+    fd \
+    ffmpeg \
+    gawk \
+    git \
+    gnupg \
+    gopls \
+    haskell-language-server \
+    kotlin-language-server \
+    llvm \
+    lua-language-server \
+    lua \
+    luarocks \
+    mariadb \
+    neovim \
+    ninja \
+    pinentry-mac \
+    pyright \
+    ripgrep \
+    rust-analyzer \
+    rustup-init \
+    shellcheck \
+    yaml-language-server \
+    zsh
+
+echo "SHOULD INSTALL GLOBAL NODEJS: asdf global nodejs latest"
+
 # Install language servers
 npm i -g  @angular/language-server \
           cssmodules-language-server \
@@ -17,38 +86,6 @@ npm i -g  @angular/language-server \
           vscode-css-languageservice \
           vscode-langservers-extracted
 
-brew update && brew upgrade && brew upgrade --cask
-brew tap epk/epk
-brew tap homebrew/cask-fonts
-
-brew install --cask \
-                amethyst \
-              font-fira-code \
-              font-sf-mono-nerd-font \
-              kitty \
-              microsoft-remote-desktop \
-              trader-workstation \
-              tradingview
-
-brew install  ack \
-              bash-language-server \
-              deno \
-              fd \
-              gopls \
-              haskell-language-server \
-              kotlin-language-server \
-              lua-language-server \
-              lua \
-              luarocks \
-              neovim \
-              pinentry \
-              pinentry-mac \
-              pyright \
-              ripgrep \
-              rustup-init \
-              rust-analyzer \
-              shellcheck \
-              yaml-language-server
 
 # Change this so it only does rustup-init if it wasn't run before
 rustup-init
