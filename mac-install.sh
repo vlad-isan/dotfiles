@@ -5,6 +5,7 @@
 brew update && brew upgrade && brew upgrade --cask
 brew tap epk/epk
 brew tap homebrew/cask-fonts
+brew tap homebrew/cask-versions
 
 brew install --cask \
     amethyst \
