@@ -20,7 +20,6 @@ brew install --cask \
     font-sf-mono-nerd-font \
     forticlient-vpn \
     google-chrome \
-    java \
     jetbrains-toolbox \
     kitty \
     microsoft-remote-desktop \
@@ -53,6 +52,7 @@ brew install \
     gnupg \
     gopls \
     haskell-language-server \
+    java \
     kotlin-language-server \
     llvm \
     lua-language-server \
