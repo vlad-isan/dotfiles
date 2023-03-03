@@ -18,7 +18,6 @@ brew install --cask \
     firefox-developer-edition \
     font-fira-code \
     font-sf-mono-nerd-font \
-    forticlient-vpn \
     google-chrome \
     jetbrains-toolbox \
     kitty \
