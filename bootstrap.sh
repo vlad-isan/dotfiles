@@ -96,3 +96,4 @@ asdf global nodejs latest
 # Since the user may choose to cancel a step here and that is cool
 # TODO rethink this system :p
 true
+
