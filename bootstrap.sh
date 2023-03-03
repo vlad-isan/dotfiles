@@ -90,6 +90,7 @@ execute_func_with_prompt bootstrap_crontab "bootstrap the crontab"
 
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf install nodejs latest
+asdf global nodejs latest
 
 # Hack to make sure this script always exits successfully
 # Since the user may choose to cancel a step here and that is cool
