@@ -93,7 +93,5 @@ rustup component add clippy
 rustup toolchain install nightly
 rustup +nightly component add miri
 
-cargo install taplo-lsp
-
 pip3 install cmake-language-server
 
