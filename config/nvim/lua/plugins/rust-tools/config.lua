@@ -15,9 +15,10 @@ require("rust-tools").setup({
           loadOutDirsFromCheck = true
         },
         -- enable clippy on save
-        checkOnSave = {
-          command = "clippy"
+        check = {
+            command = "clippy"
         },
+        checkOnSave = true,
         hoverActions = { references = true },
         procMacro = {
           enable = true
