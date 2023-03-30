@@ -61,6 +61,7 @@ brew install \
     neovim \
     ninja \
     pinentry-mac \
+    protobuf \
     pyright \
     ripgrep \
     rust-analyzer \
