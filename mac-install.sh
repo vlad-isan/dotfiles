@@ -32,6 +32,7 @@ brew install --cask \
     telegram \
     trader-workstation \
     tradingview \
+    visual-studio-code-insiders \
     whatsapp
 
 brew install \
