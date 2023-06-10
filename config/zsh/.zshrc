@@ -188,8 +188,8 @@ export GUILE_LOAD_COMPILED_PATH="/usr/local/lib/guile/3.0/site-ccache"
 export GUILE_SYSTEM_EXTENSIONS_PATH="/usr/local/lib/guile/3.0/extensions"
 export ARTIFACTORY_USERNAME=vlad.isan@eurostar.com
 export ARTIFACTORY_PASSWORD=AKCp8jQ8hZWnXmDb7LM9dpHK7GCu6jYuibgtGKMGq12oQw6xr4FqHhLmdT8csD5MsPej1WVQs
-export LDFLAGS="-L/usr/local/opt/llvm/lib/c++ -Wl,-rpath,/usr/local/opt/llvm/lib/c++"
-export CPPFLAGS="-I/usr/local/opt/llvm/include"
-export PATH="/usr/local/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib/c++ -Wl,-rpath,/opt/homebrew/opt/llvm/lib/c++"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
