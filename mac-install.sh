@@ -26,6 +26,7 @@ brew install --cask \
     mysqlworkbench \
     obs \
     postman \
+    qt-creator \
     signal \
     sublime-merge \
     sublime-text \
@@ -64,6 +65,7 @@ brew install \
     pinentry-mac \
     protobuf \
     pyright \
+    qt \
     ripgrep \
     rust-analyzer \
     rustup-init \
