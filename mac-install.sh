@@ -25,6 +25,7 @@ brew install --cask \
     microsoft-teams \
     mysqlworkbench \
     obs \
+    obsidian \
     postman \
     qt-creator \
     signal \
