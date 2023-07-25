@@ -15,6 +15,7 @@ return {
     "--header-insertion=iwyu",
   },
   capabilities = capabilities,
+    filetypes = { "c", "cpp", "cppm", "cc", "cxx", "mpp", "ixx" },
   handlers = handler.default(),
   -- TODO: figure out what is this
   init_options = {
