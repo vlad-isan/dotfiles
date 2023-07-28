@@ -35,7 +35,8 @@ brew install --cask \
     trader-workstation \
     tradingview \
     visual-studio-code-insiders \
-    whatsapp
+    whatsapp \
+    zoom
 
 brew install \
     ack \
