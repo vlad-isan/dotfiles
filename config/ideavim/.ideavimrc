@@ -1,0 +1,71 @@
+source ~/.vimrc.keymap
+
+set clipboard=unnamed,autoselect
+set surround
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set visualbell
+set noerrorbells
+
+# IdeaVimExtension
+" set keep-english-in-normal
+
+" general
+nnoremap ,a :action GotoAction<CR>
+vnoremap ,a :action GotoAction<CR>
+nnoremap ,e :action SearchEverywhere<CR>
+nnoremap ,s :action FileStructurePopup<CR>
+nnoremap ,g :action FindInPath<CR>
+nnoremap ,r :action RecentFiles<CR>
+nnoremap ,c :action CallHierarchy<CR>
+nnoremap ,b :action ShowBookmarks<CR>
+
+nnoremap ,z :action RecentProjectListGroup<CR>
+
+" jump on code
+nnoremap gd :action GotoDeclaration<CR>
+nnoremap gs :action GotoSuperMethod<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gf :action GotoFile<CR>
+nnoremap gb :action JumpToLastChange<CR>
+nnoremap gu :action ShowUsages<CR>
+nnoremap gU :action FindUsages<CR>
+nnoremap gt :action GotoTest<CR>
+nnoremap gh :action Back<CR>
+nnoremap gl :action Forward<CR>
+
+nnoremap B :action ToggleBookmark<CR>
+nnoremap gn :action NextOccurence<CR>
+nnoremap gp :action PreviousOccurence<CR>
+
+" code editing
+" nnoremap r :action RenameElement<CR>
+nnoremap q :action ShowIntentionActions<CR>
+nnoremap == :action ReformatCode<CR>
+vnoremap == :action ReformatCode<CR>
+nnoremap cc :action CommentByLineComment<CR>
+vnoremap cc :action CommentByLineComment<CR>
+
+" vnoremap p :action EditorSelectWord<CR>
+" vnoremap n :action EditorUnSelectWord<CR>
+
+
+" show information
+nnoremap <C-I> :action QuickJavaDoc<CR>
+
+nnoremap ,p :action PasteMultiple<CR>
+nnoremap ,P :action PasteMultiple<CR>
+
+" nnoremap f :action AceAction<CR>
+" vnoremap f :action AceAction<CR>
+
+" kick intellij commands
+nnoremap R :action ChooseRunConfiguration<CR>
+nnoremap - :action StepOver<CR>
+nnoremap _ :action Resume<CR>
+
+" window
+nnoremap s; :action CloseActiveTab<CR>
+nnoremap so :action MoveEditorToOppositeTabGroup<CR>
