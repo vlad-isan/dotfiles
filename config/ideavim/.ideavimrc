@@ -8,14 +8,16 @@ set ignorecase
 set smartcase
 set visualbell
 set noerrorbells
+set NERDTree
 
 # IdeaVimExtension
 " set keep-english-in-normal
 
 " general
-nnoremap ,a :action GotoAction<CR>
-vnoremap ,a :action GotoAction<CR>
-nnoremap ,e :action SearchEverywhere<CR>
+nnoremap ,a :action ActivateAIAssistantToolWindow<CR>
+vnoremap ,a :action ActivateAIAssistantToolWindow<CR>
+nnoremap ,e :action GotoNextError<CR>
+nnoremap ,E :action GotoPreviousError<CR>
 nnoremap ,s :action FileStructurePopup<CR>
 nnoremap ,g :action FindInPath<CR>
 nnoremap ,r :action RecentFiles<CR>
