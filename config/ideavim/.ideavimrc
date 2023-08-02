@@ -18,12 +18,12 @@ nnoremap ,a :action ActivateAIAssistantToolWindow<CR>
 vnoremap ,a :action ActivateAIAssistantToolWindow<CR>
 nnoremap ,e :action GotoNextError<CR>
 nnoremap ,E :action GotoPreviousError<CR>
-nnoremap ,s :action FileStructurePopup<CR>
-nnoremap ,g :action FindInPath<CR>
-nnoremap ,r :action RecentFiles<CR>
+nnoremap ,fs :action FileStructurePopup<CR>
+nnoremap ,fg :action FindInPath<CR>
+nnoremap ,fr :action RecentFiles<CR>
+nnoremap ,r :action Refactorings.QuickListPopupAction<CR>
 nnoremap ,c :action CallHierarchy<CR>
 nnoremap ,b :action ShowBookmarks<CR>
-
 nnoremap ,z :action RecentProjectListGroup<CR>
 
 " jump on code
