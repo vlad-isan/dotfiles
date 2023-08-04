@@ -25,6 +25,7 @@ nnoremap ,fr :action RecentFiles<CR>
 nnoremap ,fb :action Switcher<CR>
 nnoremap ,r :action Refactorings.QuickListPopupAction<CR>
 nnoremap ,c :action CallHierarchy<CR>
+nnoremap ,B :action ToggleBookmark<CR>
 nnoremap ,b :action ShowBookmarks<CR>
 nnoremap ,z :action RecentProjectListGroup<CR>
 
@@ -34,6 +35,9 @@ vnoremap ;a :action ShowIntentionActions<CR>
 nnoremap <Space>e :action ActivateProjectToolWindow<CR>
 nnoremap <Space>h :action HideActiveWindow<CR>
 nnoremap <Space><Esc> :action HideAllWindows<CR>
+nnoremap <Space>p :action ParameterInfo<CR>
+nnoremap <Space>i :action QuickJavaDoc<CR>
+nnoremap <Space>d :action QuickImplementations<CR>
 
 " jump on code
 nnoremap gd :action GotoDeclaration<CR>
@@ -47,7 +51,6 @@ nnoremap gt :action GotoTest<CR>
 nnoremap gh :action Back<CR>
 nnoremap gl :action Forward<CR>
 
-nnoremap B :action ToggleBookmark<CR>
 nnoremap gn :action NextOccurence<CR>
 nnoremap gp :action PreviousOccurence<CR>
 
@@ -55,15 +58,12 @@ nnoremap gp :action PreviousOccurence<CR>
 " nnoremap r :action RenameElement<CR>
 nnoremap == :action ReformatCode<CR>
 vnoremap == :action ReformatCode<CR>
-nnoremap cc :action CommentByLineComment<CR>
-vnoremap cc :action CommentByLineComment<CR>
+
+nnoremap <Space>/ :action CommentByLineComment<CR>
+vnoremap <Space>/ :action CommentByLineComment<CR>
 
 " vnoremap p :action EditorSelectWord<CR>
 " vnoremap n :action EditorUnSelectWord<CR>
-
-
-" show information
-nnoremap <C-I> :action QuickJavaDoc<CR>
 
 nnoremap ,p :action PasteMultiple<CR>
 nnoremap ,P :action PasteMultiple<CR>
