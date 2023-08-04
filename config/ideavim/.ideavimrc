@@ -28,6 +28,13 @@ nnoremap ,c :action CallHierarchy<CR>
 nnoremap ,b :action ShowBookmarks<CR>
 nnoremap ,z :action RecentProjectListGroup<CR>
 
+nnoremap ;a :action ShowIntentionActions<CR>
+vnoremap ;a :action ShowIntentionActions<CR>
+
+nnoremap <Space>e :action ActivateProjectToolWindow<CR>
+nnoremap <Space>h :action HideActiveWindow<CR>
+nnoremap <Space><Esc> :action HideAllWindows<CR>
+
 " jump on code
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap gs :action GotoSuperMethod<CR>
@@ -46,7 +53,6 @@ nnoremap gp :action PreviousOccurence<CR>
 
 " code editing
 " nnoremap r :action RenameElement<CR>
-nnoremap q :action ShowIntentionActions<CR>
 nnoremap == :action ReformatCode<CR>
 vnoremap == :action ReformatCode<CR>
 nnoremap cc :action CommentByLineComment<CR>
