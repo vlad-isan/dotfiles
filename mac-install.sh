@@ -73,6 +73,9 @@ brew install \
     rustup-init \
     shellcheck \
     yaml-language-server \
+    ykman \
+    yubico-piv-tool \
+    ykpers \
     zsh
 
 echo "SHOULD INSTALL GLOBAL NODEJS: asdf global nodejs latest"
