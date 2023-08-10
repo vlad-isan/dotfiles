@@ -74,6 +74,7 @@ brew install \
     shellcheck \
     yaml-language-server \
     ykman \
+    yubico-authenticator \
     yubico-piv-tool \
     ykpers \
     zsh
