@@ -76,7 +76,6 @@ brew install \
     ykman \
     yubico-authenticator \
     yubico-piv-tool \
-    ykpers \
     zsh
 
 echo "SHOULD INSTALL GLOBAL NODEJS: asdf global nodejs latest"
