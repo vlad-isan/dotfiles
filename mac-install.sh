@@ -66,6 +66,7 @@ brew install \
     ninja \
     openssh \
     pinentry-mac \
+    postgresql@15 \
     protobuf \
     pyright \
     qt \
