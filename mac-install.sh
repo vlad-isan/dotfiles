@@ -64,6 +64,7 @@ brew install \
     mariadb \
     neovim \
     ninja \
+    openssh \
     pinentry-mac \
     protobuf \
     pyright \
