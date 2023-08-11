@@ -193,4 +193,5 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=$(brew --prefix openssh)/bin:$PATH
+export PATH=$(brew --prefix postgresql15)/bin:$PATH
 
