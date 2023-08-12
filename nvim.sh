@@ -19,4 +19,3 @@ ln -sfnvh ${PWD}/config/nvim/lua/plugins ${NVIM_LUA_DIR}
 ln -sfnvh ${PWD}/config/nvim/lua/settings ${NVIM_LUA_DIR}
 ln -sfnvh ${PWD}/config/nvim/lua/sugar ${NVIM_LUA_DIR}
 
-
