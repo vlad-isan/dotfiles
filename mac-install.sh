@@ -40,7 +40,6 @@ brew install --cask \
 
 brew install \
     ack \
-    anytype \
     asdf \
     autoconf \
     awscli \
