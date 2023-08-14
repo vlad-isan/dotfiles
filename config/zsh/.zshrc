@@ -183,6 +183,9 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="/usr/local/opt/mongodb-community@4.0/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export GPG_TTY=$(tty)
+export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+
 export GUILE_LOAD_PATH="/usr/local/share/guile/site/3.0"
 export GUILE_LOAD_COMPILED_PATH="/usr/local/lib/guile/3.0/site-ccache"
 export GUILE_SYSTEM_EXTENSIONS_PATH="/usr/local/lib/guile/3.0/extensions"

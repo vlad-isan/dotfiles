@@ -85,6 +85,9 @@ execute_func_with_prompt bootstrap_crontab "bootstrap the crontab"
 # Configure ideavim
 . ./ideavim.sh
 
+# Configure gnupg
+. ./gnupg.sh
+
 # Configure kitty
 . ./kitty.sh
 
