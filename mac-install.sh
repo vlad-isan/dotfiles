@@ -74,6 +74,7 @@ brew install \
     rust-analyzer \
     rustup-init \
     shellcheck \
+    veracrypt \
     yaml-language-server \
     ykman \
     yubico-authenticator \
