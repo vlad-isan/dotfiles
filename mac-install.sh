@@ -64,6 +64,7 @@ brew install \
     lua \
     luarocks \
     mariadb \
+    nasm \
     neovim \
     ninja \
     openssh \
