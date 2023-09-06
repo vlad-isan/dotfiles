@@ -42,6 +42,8 @@ brew install \
     ack \
     asdf \
     autoconf \
+    autoconf-archive \
+    automake \
     awscli \
     bash-language-server \
     boost \
