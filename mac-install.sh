@@ -77,6 +77,7 @@ brew install \
     rust-analyzer \
     rustup-init \
     shellcheck \
+    steam \
     yaml-language-server \
     ykman \
     yubico-authenticator \
