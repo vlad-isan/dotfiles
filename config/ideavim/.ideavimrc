@@ -16,8 +16,10 @@ set NERDTree
 " general
 nnoremap ,a :action ActivateAIAssistantToolWindow<CR>
 vnoremap ,a :action ActivateAIAssistantToolWindow<CR>
-nnoremap ,e :action GotoNextError<CR>
-nnoremap ,E :action GotoPreviousError<CR>
+
+nnoremap ,e :action ShowErrorDescription<CR>
+vnoremap ,e :action ShowErrorDescription<CR>
+
 nnoremap ,ff :action SearchEverywhere<CR>
 nnoremap ,fs :action FileStructurePopup<CR>
 nnoremap ,fg :action FindInPath<CR>
@@ -32,14 +34,27 @@ nnoremap ,z :action RecentProjectListGroup<CR>
 nnoremap ;a :action ShowIntentionActions<CR>
 vnoremap ;a :action ShowIntentionActions<CR>
 
+nnoremap ;s :action Stop<CR>
+
+nnoremap ;so :action StepOver<CR>
+nnoremap ;si :action StepInto<CR>
+nnoremap ;sb :action StepOut<CR>
+nnoremap ;r :action Resume<CR>
+
+nnoremap ;b :action ToggleLineBreakpoint<CR>
+nnoremap ;be :action EditBreakpoint<CR>
+
 nnoremap <Space>e :action ActivateProjectToolWindow<CR>
 nnoremap <Space>h :action HideActiveWindow<CR>
 nnoremap <Space><Esc> :action HideAllWindows<CR>
 nnoremap <Space>p :action ParameterInfo<CR>
 nnoremap <Space>i :action QuickJavaDoc<CR>
 nnoremap <Space>d :action QuickImplementations<CR>
+nnoremap <Space>b :action ViewBreakpoints<CR>
 
 " jump on code
+nnoremap ge :action GotoNextError<CR>
+nnoremap gE :action GotoPreviousError<CR>
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap gs :action GotoSuperMethod<CR>
 nnoremap gi :action GotoImplementation<CR>
