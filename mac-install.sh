@@ -32,7 +32,6 @@ brew install --cask \
     sublime-merge \
     sublime-text \
     telegram \
-    trader-workstation \
     tradingview \
     visual-studio-code-insiders \
     whatsapp \
