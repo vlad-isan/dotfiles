@@ -34,8 +34,7 @@ brew install --cask \
     telegram \
     tradingview \
     visual-studio-code-insiders \
-    whatsapp \
-    zoom
+    whatsapp
 
 brew install \
     ack \
