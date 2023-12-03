@@ -70,12 +70,14 @@ brew install \
     postgresql@15 \
     protobuf \
     pyright \
+    python@3.10 \
     qt \
     ripgrep \
     rust-analyzer \
     rustup-init \
     shellcheck \
     steam \
+    wget \
     yaml-language-server \
     ykman \
     yubico-authenticator \
