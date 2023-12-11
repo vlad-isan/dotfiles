@@ -51,6 +51,7 @@ brew install \
     fd \
     ffmpeg \
     gawk \
+    gh \
     git \
     gnupg \
     gopls \
