@@ -20,6 +20,7 @@ brew install --cask \
     font-sf-mono-nerd-font \
     google-chrome \
     jetbrains-toolbox \
+    keymapp \
     kitty \
     microsoft-remote-desktop \
     microsoft-teams \
