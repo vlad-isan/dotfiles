@@ -30,6 +30,7 @@ brew install --cask \
     postman \
     qt-creator \
     signal \
+    sony-ps-remote-play \
     sublime-merge \
     sublime-text \
     telegram \
