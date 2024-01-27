@@ -1,0 +1,58 @@
+* Emacs Configuration
+
+** Setup Minimal Frame
+#+begin_src emacs-lisp
+  ;; Disable toolbar
+  (tool-bar-mode -1)
+
+  ;; Disable menu bar
+  (menu-bar-mode -1)
+
+  ;; Disable scroll bar
+  (scroll-bar-mode -1)
+#+end_src
+
+** Package Archives setup
+#+BEGIN_SRC emacs-lisp
+  (require 'package)
+  (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (package-initialize)
+
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+
+  (unless package-archive-contents
+    (package-refresh-contents))
+
+  ;;Setting use-package-always-ensure to t (meaning “true”) saves us the trouble of having to specify :ensure t in any future packages we’d like to declare and install.
+  ;;The :ensure macro basically makes sure that the packages are correctly installed at every startup, and automatically installs the missing ones for you.
+  ;;This is extremely useful when you frequently move between different machines and need to port your entire Emacs config over to a new setup.
+  (eval-and-compile
+    (setq use-package-always-ensure t
+	  use-package-expand-minimally t))
+#+END_SRC
+
+** General Settings
+#+BEGIN_SRC emacs-lisp
+  ;; Your Emacs Lisp code for general settings...
+  (setq inhibit-startup-screen t)
+#+END_SRC
+
+** Theme Configuration
+#+BEGIN_SRC emacs-lisp
+  ;; Instal gruvbox themes
+  (use-package gruvbox-theme
+    :ensure t
+    :config (load-theme 'gruvbox-dark-medium t))
+#+END_SRC
+
+** Font Configuration
+#+begin_src emacs-lisp
+  (set-face-attribute 'default nil
+                    :family "Monaspace Neon Var"
+                    :height 140
+                    :weight 'normal
+                    :width 'normal)
+#+end_src

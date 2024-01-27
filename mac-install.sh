@@ -17,7 +17,9 @@ brew install --cask \
     firefox \
     firefox-developer-edition \
     font-fira-code \
+    font-monaspace \
     font-sf-mono-nerd-font \
+    font-jetbrains-mono \
     google-chrome \
     jetbrains-toolbox \
     keymapp \
