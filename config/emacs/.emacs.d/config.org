@@ -14,24 +14,34 @@
 
 ** Package Archives setup
 #+BEGIN_SRC emacs-lisp
-  (require 'package)
-  (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-  (package-initialize)
+  ;; (require 'package)
+  ;; (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
+  ;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  ;; (package-initialize)
 
-  (unless (package-installed-p 'use-package)
-    (package-refresh-contents)
-    (package-install 'use-package))
+  ;; (unless (package-installed-p 'use-package)
+  ;;   (package-refresh-contents)
+  ;;   (package-install 'use-package))
 
-  (unless package-archive-contents
-    (package-refresh-contents))
+  ;; (unless package-archive-contents
+  ;;   (package-refresh-contents))
 
-  ;;Setting use-package-always-ensure to t (meaning “true”) saves us the trouble of having to specify :ensure t in any future packages we’d like to declare and install.
-  ;;The :ensure macro basically makes sure that the packages are correctly installed at every startup, and automatically installs the missing ones for you.
-  ;;This is extremely useful when you frequently move between different machines and need to port your entire Emacs config over to a new setup.
-  (eval-and-compile
-    (setq use-package-always-ensure t
-	  use-package-expand-minimally t))
+  ;; ;;Setting use-package-always-ensure to t (meaning “true”) saves us the trouble of having to specify :ensure t in any future packages we’d like to declare and install.
+  ;; ;;The :ensure macro basically makes sure that the packages are correctly installed at every startup, and automatically installs the missing ones for you.
+  ;; ;;This is extremely useful when you frequently move between different machines and need to port your entire Emacs config over to a new setup.
+  ;; (eval-and-compile
+  ;;   (setq use-package-always-ensure t
+  ;; 	use-package-expand-minimally t))
+
+  (use-package emacs
+    :ensure t
+    :init
+    (setq use-package-always-ensure t)
+    (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
+    (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+    ;; (unless (package-installed-p 'vc-use-package)
+    ;;   (package-vc-install "https://github.com/slotThe/vc-use-package"))
+    )
 #+END_SRC
 
 ** General Settings
@@ -42,17 +52,133 @@
 
 ** Theme Configuration
 #+BEGIN_SRC emacs-lisp
-  ;; Instal gruvbox themes
-  (use-package gruvbox-theme
+  ;; Install gruvbox themesx
+  ;; (use-package gruvbox-theme
+  ;;   :ensure t
+  ;;   :config (load-theme 'gruvbox-dark-medium t))
+  (use-package modus-themes
     :ensure t
-    :config (load-theme 'gruvbox-dark-medium t))
+    :config
+    (setq modus-themes-bold-constructs t
+	  modus-themes-italic-constructs t
+	  modus-themes-mixed-fonts t
+	  modus-themes-subtle-line-numbers t
+	  modus-themes-variable-pitch-ui t)
+    (setq modus-themes-org-blocks 'gray-background) ;; {nil,'gray-background,'tinted-background}
+
+    (if (display-graphic-p)
+	(modus-themes-load-theme 'modus-vivendi-tinted)
+      (modus-themes-load-theme 'modus-vivendi)))
 #+END_SRC
 
 ** Font Configuration
 #+begin_src emacs-lisp
   (set-face-attribute 'default nil
-                    :family "Monaspace Neon Var"
-                    :height 140
-                    :weight 'normal
-                    :width 'normal)
+		      :family "Monaspace Neon Var"
+		      :height 140
+		      :weight 'normal
+		      :width 'normal)
+#+end_src
+
+** Treesitter & LSP
+#+begin_src emacs-lisp
+  (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+  (add-to-list 'auto-mode-alist '("\\.cppm\\'" . c++-mode))
+  (add-to-list 'auto-mode-alist '("\\.ixx\\'" . c++-mode))
+
+  (defun treesit-install-all-grammars () (interactive)
+	 (dolist (lang treesit-language-source-alist)
+	   (unless (treesit-language-available-p (car lang))
+	     (treesit-install-language-grammar (car lang)))))
+
+  (use-package treesit
+    :ensure nil
+    :init
+    (setq treesit-language-source-alist
+	  '(
+	    (bash "https://github.com/tree-sitter/tree-sitter-bash")
+	    (c "https://github.com/tree-sitter/tree-sitter-c")
+	    (cpp "https://github.com/tree-sitter/tree-sitter-cpp")
+	    (cmake "https://github.com/uyha/tree-sitter-cmake")
+	    (css . ("https://github.com/tree-sitter/tree-sitter-css"))
+	    (c-sharp . ("https://github.com/tree-sitter/tree-sitter-c-sharp"))
+	    (dockerfile . ("https://github.com/camdencheek/tree-sitter-dockerfile"))
+	    (elisp "https://github.com/Wilfred/tree-sitter-elisp")
+	    (go "https://github.com/tree-sitter/tree-sitter-go")
+	    (html . ("https://github.com/tree-sitter/tree-sitter-html"))
+	    (haskell . ("https://github.com/tree-sitter/tree-sitter-haskell"))
+	    (java . ("https://github.com/tree-sitter/tree-sitter-java"))
+	    (javascript . ("https://github.com/tree-sitter/tree-sitter-javascript"))
+	    (json . ("https://github.com/tree-sitter/tree-sitter-json"))
+	    (make "https://github.com/alemuller/tree-sitter-make")
+	    (markdown "https://github.com/ikatyang/tree-sitter-markdown")
+	    (python "https://github.com/tree-sitter/tree-sitter-python")
+	    (toml "https://github.com/tree-sitter/tree-sitter-toml")
+	    (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+	    (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src"))
+	    (ruby . ("https://github.com/tree-sitter/tree-sitter-ruby"))
+	    (rust "https://github.com/tree-sitter/tree-sitter-rust")
+	    (yaml . ("https://github.com/ikatyang/tree-sitter-yaml"))
+	    )
+	  )
+    (setq treesit-load-name-override-list '((c++ "libtree-sitter-cpp" "tree_sitter_cpp")))
+    (setq treesit-load-name-override-list '((csharp "libtree-sitter-c-sharp")))
+    (setq treesit-load-name-override-list '((js "libtree-sitter-javascript" "tree_sitter_javascript")))
+    :config
+    (treesit-install-all-grammars)
+    (setq major-mode-remap-alist
+	  '(
+	    (bash-mode . bash-ts-mode)
+	    (c-mode . c-ts-mode)
+	    (c++-mode . c++-ts-mode)
+	    (cmake-mode . cmake-ts-mode)
+	    (css-mode . css-ts-mode)
+	    (csharp-mode . csharp-ts-mode)
+	    (dockerfile-mode . dockerfile-ts-mode)
+	    (elisp-mode . elisp-ts-mode)
+	    (go-mode . go-ts-mode)
+	    (haskell-mode . haskell-ts-mode)
+	    (html-mode . html-ts-mode)
+	    (java-mode . java-ts-mode)
+	    (js-mode . js-ts-mode)
+	    (json-mode . json-ts-mode)
+	    (make-mode . make-ts-mode)
+	    (markdown-mode . markdown-ts-mode)
+	    (python-mode . python-ts-mode)
+	    (ruby-mode . ruby-ts-mode)
+	    (toml-mode . toml-ts-mode)
+	    (tsx-mode . tsx-ts-mode)
+	    (typescript-mode . typescript-ts-mode)
+	    (rust-mode . rust-ts-mode)
+	    (yaml-mode . yaml-ts-mode)
+	    )
+	  )
+    )
+
+  (use-package eglot
+    :init
+    (fset #'jsonrpc--log-event #'ignore) ;; performance boost
+    :hook
+    (bash-ts-mode . eglot-ensure)
+    (c-ts-mode . eglot-ensure)
+    (c++-ts-mode . eglot-ensure)
+    (cmake-ts-mode . eglot-ensure)
+    (css-ts-mode . eglot-ensure)
+    (dockerfile-ts-mode . eglot-ensure)
+    (elisp-ts-mode . eglot-ensure)
+    (go-ts-mode . eglot-ensure)
+    (html-ts-mode . eglot-ensure)
+    (java-ts-mode . eglot-ensure)
+    (js-ts-mode . eglot-ensure)
+    (json-ts-mode . eglot-ensure)
+    (make-ts-mode . eglot-esnure)
+    (markdown-ts-mode . eglot-ensure)
+    (python-ts-mode . eglot-ensure)
+    (ruby-ts-mode . eglot-ensure)
+    (toml-ts-mode . eglot-ensure)
+    (tsx-ts-mode . eglot-ensure)
+    (typescript-ts-mode . eglot-ensure)
+    (rust-ts-mode . eglot-ensure)
+    (yaml-ts-mode . eglot-ensure)
+    )
 #+end_src
