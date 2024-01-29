@@ -708,8 +708,6 @@
     (let ((default-directory org-directory))
       (call-interactively 'find-file)))
 
-
-
   (global-set-key (kbd "C-c o r") 'consult-ripgrep-org)
   (global-set-key (kbd "C-c o f") 'find-file-in-org-directory)
 #+end_src
