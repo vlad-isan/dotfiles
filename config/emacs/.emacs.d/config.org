@@ -619,61 +619,61 @@
     (org-roam-directory (file-truename "~/org/roam/"))
     (org-roam-dailies-directory "daily/")
     :bind (("C-c n l" . org-roam-buffer-toggle)
-	   ("C-c n f" . org-roam-node-find)
-	   ("C-c n g" . org-roam-graph)
-	   ("C-c n i" . org-roam-node-insert)
-	   ("C-c n c" . org-roam-capture)
-	   ;; Dailies
-	   ("C-c n d t" . org-roam-dailies-capture-today)
-	   ("C-c n d d" . org-roam-dailies-capture-date)
-	   ("C-c n d g" . org-roam-dailies-goto-today)
-	   ("C-c n d G" . org-roam-dailies-goto-date))
+           ("C-c n f" . org-roam-node-find)
+           ("C-c n g" . org-roam-graph)
+           ("C-c n i" . org-roam-node-insert)
+           ("C-c n c" . org-roam-capture)
+           ;; Dailies
+           ("C-c n d t" . org-roam-dailies-capture-today)
+           ("C-c n d d" . org-roam-dailies-capture-date)
+           ("C-c n d g" . org-roam-dailies-goto-today)
+           ("C-c n d G" . org-roam-dailies-goto-date))
     :config
     (setq org-roam-capture-templates
-	  '(
-	    ("z" "Zettel" plain
-	     (function org-roam-capture--get-point)
-	     "%?"
-	     :file-name "${slug}"
-	     :head "#+TITLE: ${title}\n#+ROAM_TAGS:\n#+CREATED: %U\n\n"
-	     :unnarrowed t)
-	    ("m" "Meeting" plain
-	     (function org-roam-capture--get-point)
-	     "* Participants: %^{Participants}\n* Date: %U\n\n%?"
-	     :file-name "meetings/${slug}"
-	     :head "#+TITLE: Meeting: ${title}\n#+ROAM_TAGS: meeting\n\n"
-	     :unnarrowed t)
-	    ("p" "Project" plain
-	     (function org-roam-capture--get-point)
-	     "* Objective: %^{Objective}\n* Key Results: %?\n* Deadline: %^t"
-	     :file-name "projects/${slug}"
-	     :head "#+TITLE: ${title}\n#+ROAM_TAGS: project\n\n"
-	     :unnarrowed t)
-	    ("j" "Journal" plain
-	     (function org-roam-capture--get-point)
-	     "%?"
-	     :file-name "journal/%<%Y-%m-%d>"
-	     :head "#+TITLE: Journal Entry: %<%Y-%m-%d>\n#+ROAM_TAGS: journal\n\n"
-	     :unnarrowed t)
-	    ("l" "Literature" plain
-	     (function org-roam-capture--get-point)
-	     "* Source: %^{Source}\n* Author: %^{Author}\n* Key Insights: %?\n* Link: %^{Link}"
-	     :file-name "literature/${slug}"
-	     :head "#+TITLE: ${title}\n#+ROAM_TAGS: literature\n\n"
-	     :unnarrowed t)
-	    ("i" "Idea" plain
-	     (function org-roam-capture--get-point)
-	     "%?"
-	     :file-name "ideas/${slug}"
-	     :head "#+TITLE: Idea: ${title}\n#+ROAM_TAGS: idea\n\n"
-	     :unnarrowed t)
+          '(
+            ("z" "Zettel" plain
+             (function org-roam-capture--get-point)
+             "%?"
+             :file-name "${slug}"
+             :head "#+TITLE: ${title}\n#+ROAM_TAGS:\n#+CREATED: %U\n\n"
+             :unnarrowed t)
+            ("m" "Meeting" plain
+             (function org-roam-capture--get-point)
+             "* Participants: %^{Participants}\n* Date: %U\n\n%?"
+             :file-name "meetings/${slug}"
+             :head "#+TITLE: Meeting: ${title}\n#+ROAM_TAGS: meeting\n\n"
+             :unnarrowed t)
+            ("p" "Project" plain
+             (function org-roam-capture--get-point)
+             "* Objective: %^{Objective}\n* Key Results: %?\n* Deadline: %^t"
+             :file-name "projects/${slug}"
+             :head "#+TITLE: ${title}\n#+ROAM_TAGS: project\n\n"
+             :unnarrowed t)
+            ("j" "Journal" plain
+             (function org-roam-capture--get-point)
+             "%?"
+             :file-name "journal/%<%Y-%m-%d>"
+             :head "#+TITLE: Journal Entry: %<%Y-%m-%d>\n#+ROAM_TAGS: journal\n\n"
+             :unnarrowed t)
+            ("l" "Literature" plain
+             (function org-roam-capture--get-point)
+             "* Source: %^{Source}\n* Author: %^{Author}\n* Key Insights: %?\n* Link: %^{Link}"
+             :file-name "literature/${slug}"
+             :head "#+TITLE: ${title}\n#+ROAM_TAGS: literature\n\n"
+             :unnarrowed t)
+            ("i" "Idea" plain
+             (function org-roam-capture--get-point)
+             "%?"
+             :file-name "ideas/${slug}"
+             :head "#+TITLE: Idea: ${title}\n#+ROAM_TAGS: idea\n\n"
+             :unnarrowed t)
 
-	    ))
+            ))
     (setq org-roam-dailies-capture-templates
-	  '(("d" "default" entry
-	     "* %<%I:%M %p>: %?"
-	     :target (file+head "%<%Y-%m-%d>.org"
-				"#+TITLE: %<%Y-%m-%d>\n\n"))))
+          '(("d" "default" entry
+             "* %<%I:%M %p>: %?"
+             :target (file+head "%<%Y-%m-%d>.org"
+                                "#+TITLE: %<%Y-%m-%d>\n\n"))))
     ;; If you're using a vertical completion framework, you might want a more informative completion interface
     (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
     (org-roam-db-autosync-mode)
@@ -693,8 +693,23 @@
     ;;  :hook (after-init . org-roam-ui-mode)
     :config
     (setq org-roam-ui-sync-theme t
-	  org-roam-ui-follow t
-	  org-roam-ui-update-on-save t
-	  org-roam-ui-open-on-start t))
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t))
 
+  (defun consult-ripgrep-org ()
+    "Run `consult-ripgrep` in the org directory."
+    (interactive)
+    (consult-ripgrep org-directory))
+
+  (defun find-file-in-org-directory ()
+    "Use `find-file` to open a file from `org-directory`."
+    (interactive)
+    (let ((default-directory org-directory))
+      (call-interactively 'find-file)))
+
+
+
+  (global-set-key (kbd "C-c o r") 'consult-ripgrep-org)
+  (global-set-key (kbd "C-c o f") 'find-file-in-org-directory)
 #+end_src
