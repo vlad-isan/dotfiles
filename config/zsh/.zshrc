@@ -198,3 +198,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=$(brew --prefix openssh)/bin:$PATH
 export PATH=$(brew --prefix postgresql@15)/bin:$PATH
 
+# E* code artifact token
+echo "Fetching CodeArtifact token"
+export CODEARTIFACT_AUTH_TOKEN=`aws --profile eurostar codeartifact get-authorization-token --domain eurostar --domain-owner 042320015852 --region eu-west-1 --query authorizationToken --output text`

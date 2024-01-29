@@ -559,12 +559,55 @@
 ** Org mode
 #+begin_src emacs-lisp
   (use-package org
-    :ensure t
+    :custom
+    (org-directory (file-truename "~/org/"))
+    (org-agenda-files '("~/org/inbox.org"
+			"~/org/meetings.org"
+			"~/org/projects.org"
+			"~/org/journal.org"
+			"~/org/notes.org"
+			"~/org/bookmarks.org"
+			"~/org/habits.org"))
+    (org-startup-indented t)
     :bind (
 	   ("C-c l" . org-store-link)
 	   ("C-c a" . org-agenda)
 	   ("C-c c" . org-capture))
-
+    :config
+    (setq org-status-folded 'showall)
+    (setq org-return-follows-link t)
+    (setq org-capture-templates
+	  '(
+	    ("t" "Todo" entry (file "~/org/inbox.org")
+	     "* TODO %?\n  %i\n  %a")
+	    ("m" "Meeting" entry (file "~/org/meetings.org")
+	     "* MEETING with %? :MEETING:\n%U\n** Participants\n- [ ] \n** Agenda\n** Notes\n")
+	    ("p" "Project Task" entry (file+headline "~/org/projects.org" "Projects")
+	     "* TODO %? :PROJECT:\n  %i\n  %a")
+	    ("j" "Journal" entry (file+datetree "~/org/journal.org")
+	     "* %?\nEntered on %U\n  %i\n  %a")
+	    ("n" "Quick Note" entry (file "~/org/notes.org")
+	     "* %? :NOTE:\n%U\n  %i\n  %a")
+	    ("b" "Bookmark" entry (file+headline "~/org/bookmarks.org" "Bookmarks")
+	     "* %? :BOOKMARK:\n%U\n  %(org-cliplink-capture)\n  %i\n  %a")
+	    ("h" "Habit" entry (file "~/org/habits.org")
+	     "* NEXT %?\n  SCHEDULED: %t .+1d\n  :PROPERTIES:\n  :STYLE: habit\n  :REPEAT_TO_STATE: NEXT\n  :END:\n")
+	    )
+	  )
+    (setq org-agenda-custom-commands
+	  '(("t" "All TODOs" todo ""
+	     ((org-agenda-files '("~/org/inbox.org" "~/org/projects.org"))))
+	    ("m" "Meetings" agenda ""
+	     ((org-agenda-files '("~/org/meetings.org"))))
+	    ("n" "Notes and Bookmarks" alltodo ""
+	     ((org-agenda-files '("~/org/notes.org" "~/org/bookmarks.org"))))))
+    (setq org-todo-keywords
+	  '((sequence "TODO(t)" "IN-PROGRESS(i)" "|" "DONE(d)")))
+    (setq org-log-done 'time)
+    (setq org-refile-targets '((nil :maxlevel . 3)
+			       (org-agenda-files :maxlevel . 3)))
+    (setq org-refile-use-outline-path 'file)
+    (setq org-outline-path-complete-in-steps nil)
     )
 #+end_src
 
@@ -573,18 +616,85 @@
   (use-package org-roam
     :ensure t
     :custom
-    (org-roam-directory (file-truename "/path/to/org-files/"))
+    (org-roam-directory (file-truename "~/org/roam/"))
+    (org-roam-dailies-directory "daily/")
     :bind (("C-c n l" . org-roam-buffer-toggle)
 	   ("C-c n f" . org-roam-node-find)
 	   ("C-c n g" . org-roam-graph)
 	   ("C-c n i" . org-roam-node-insert)
 	   ("C-c n c" . org-roam-capture)
 	   ;; Dailies
-	   ("C-c n j" . org-roam-dailies-capture-today))
+	   ("C-c n d t" . org-roam-dailies-capture-today)
+	   ("C-c n d d" . org-roam-dailies-capture-date)
+	   ("C-c n d g" . org-roam-dailies-goto-today)
+	   ("C-c n d G" . org-roam-dailies-goto-date))
     :config
+    (setq org-roam-capture-templates
+	  '(
+	    ("z" "Zettel" plain
+	     (function org-roam-capture--get-point)
+	     "%?"
+	     :file-name "${slug}"
+	     :head "#+TITLE: ${title}\n#+ROAM_TAGS:\n#+CREATED: %U\n\n"
+	     :unnarrowed t)
+	    ("m" "Meeting" plain
+	     (function org-roam-capture--get-point)
+	     "* Participants: %^{Participants}\n* Date: %U\n\n%?"
+	     :file-name "meetings/${slug}"
+	     :head "#+TITLE: Meeting: ${title}\n#+ROAM_TAGS: meeting\n\n"
+	     :unnarrowed t)
+	    ("p" "Project" plain
+	     (function org-roam-capture--get-point)
+	     "* Objective: %^{Objective}\n* Key Results: %?\n* Deadline: %^t"
+	     :file-name "projects/${slug}"
+	     :head "#+TITLE: ${title}\n#+ROAM_TAGS: project\n\n"
+	     :unnarrowed t)
+	    ("j" "Journal" plain
+	     (function org-roam-capture--get-point)
+	     "%?"
+	     :file-name "journal/%<%Y-%m-%d>"
+	     :head "#+TITLE: Journal Entry: %<%Y-%m-%d>\n#+ROAM_TAGS: journal\n\n"
+	     :unnarrowed t)
+	    ("l" "Literature" plain
+	     (function org-roam-capture--get-point)
+	     "* Source: %^{Source}\n* Author: %^{Author}\n* Key Insights: %?\n* Link: %^{Link}"
+	     :file-name "literature/${slug}"
+	     :head "#+TITLE: ${title}\n#+ROAM_TAGS: literature\n\n"
+	     :unnarrowed t)
+	    ("i" "Idea" plain
+	     (function org-roam-capture--get-point)
+	     "%?"
+	     :file-name "ideas/${slug}"
+	     :head "#+TITLE: Idea: ${title}\n#+ROAM_TAGS: idea\n\n"
+	     :unnarrowed t)
+
+	    ))
+    (setq org-roam-dailies-capture-templates
+	  '(("d" "default" entry
+	     "* %<%I:%M %p>: %?"
+	     :target (file+head "%<%Y-%m-%d>.org"
+				"#+TITLE: %<%Y-%m-%d>\n\n"))))
     ;; If you're using a vertical completion framework, you might want a more informative completion interface
     (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
     (org-roam-db-autosync-mode)
     ;; If using org-roam-protocol
     (require 'org-roam-protocol))
+
+  (use-package websocket
+    :ensure t
+    :after org-roam)
+
+  (use-package org-roam-ui
+    :ensure t
+    :after org-roam ;; or :after org
+    ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+    ;;         a hookable mode anymore, you're advised to pick something yourself
+    ;;         if you don't care about startup time, use
+    ;;  :hook (after-init . org-roam-ui-mode)
+    :config
+    (setq org-roam-ui-sync-theme t
+	  org-roam-ui-follow t
+	  org-roam-ui-update-on-save t
+	  org-roam-ui-open-on-start t))
+
 #+end_src
