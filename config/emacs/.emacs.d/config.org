@@ -37,6 +37,7 @@
     :ensure t
     :init
     (setq use-package-always-ensure t)
+    (setenv "SSH_AUTH_SOCK" (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket | tr -d '\n'"))
     (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
     (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
     ;; (unless (package-installed-p 'vc-use-package)
