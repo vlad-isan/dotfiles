@@ -581,15 +581,15 @@
 	    ("t" "Todo" entry (file "~/org/inbox.org")
 	     "* TODO %?\n  %i\n  %a")
 	    ("m" "Meeting" entry (file "~/org/meetings.org")
-	     "* MEETING with %? :MEETING:\n%U\n** Participants\n- [ ] \n** Agenda\n** Notes\n")
+	     "* MEETING with %? :meeting:\n%U\n** Participants\n- [ ] \n** Agenda\n** Notes\n")
 	    ("p" "Project Task" entry (file+headline "~/org/projects.org" "Projects")
-	     "* TODO %? :PROJECT:\n  %i\n  %a")
+	     "* TODO %? :project:\n  %i\n  %a")
 	    ("j" "Journal" entry (file+datetree "~/org/journal.org")
 	     "* %?\nEntered on %U\n  %i\n  %a")
 	    ("n" "Quick Note" entry (file "~/org/notes.org")
-	     "* %? :NOTE:\n%U\n  %i\n  %a")
+	     "* %? :note:\n%U\n  %i\n  %a")
 	    ("b" "Bookmark" entry (file+headline "~/org/bookmarks.org" "Bookmarks")
-	     "* %? :BOOKMARK:\n%U\n  %(org-cliplink-capture)\n  %i\n  %a")
+	     "* %? :bookmark:\n%U\n  %(org-cliplink-capture)\n  %i\n  %a")
 	    ("h" "Habit" entry (file "~/org/habits.org")
 	     "* NEXT %?\n  SCHEDULED: %t .+1d\n  :PROPERTIES:\n  :STYLE: habit\n  :REPEAT_TO_STATE: NEXT\n  :END:\n")
 	    )
@@ -632,32 +632,32 @@
     (setq org-roam-capture-templates
           '(
             ("z" "Zettel" plain "%?"
-             :target (file+head "zettels/${slug}.org" "#+TITLE: ${title}\n#+ROAM_TAGS:\n#+CREATED: %U\n\n")
+             :target (file+head "zettels/${slug}.org" "#+title: ${title}\n#+filetags:\n#+created: %U\n\n")
              :unnarrowed t)
             ("m" "Meeting" plain
              "* Participants: %^{Participants}\n* Date: %U\n\n%?"
-             :target (file+head "meetings/${slug}.org" "#+TITLE: Meeting: ${title}\n#+ROAM_TAGS: meeting\n\n")
+             :target (file+head "meetings/${slug}.org" "#+title: Meeting: ${title}\n#+filetags: meeting\n\n")
              :unnarrowed t)
             ("p" "Project" plain
              "* Objective: %^{Objective}\n* Key Results: %?\n* Deadline: %^t"
-             :target (file+head "projects/${slug}.org" "#+TITLE: ${title}\n#+ROAM_TAGS: project\n\n")
+             :target (file+head "projects/${slug}.org" "#+title: ${title}\n#+filetags: project\n\n")
              :unnarrowed t)
             ("j" "Journal" plain "%?"
-             :target (file+head "journal/%<%Y-%m-%d>.org" "#+TITLE: Journal Entry: %<%Y-%m-%d>\n#+ROAM_TAGS: journal\n\n")
+             :target (file+head "journal/%<%Y-%m-%d>.org" "#+title: Journal Entry: %<%Y-%m-%d>\n#+filetags: journal\n\n")
              :unnarrowed t)
             ("l" "Literature" plain
              "* Source: %^{Source}\n* Author: %^{Author}\n* Key Insights: %?\n* Link: %^{Link}"
-             :target (file+head "literature/${slug}.org" "#+TITLE: ${title}\n#+ROAM_TAGS: literature\n\n")
+             :target (file+head "literature/${slug}.org" "#+title: ${title}\n#+filetags: literature\n\n")
              :unnarrowed t)
             ("i" "Idea" plain "%?"
-             :target (file+head "ideas/${slug}.org" "#+TITLE: Idea: ${title}\n#+ROAM_TAGS: idea\n\n")
+             :target (file+head "ideas/${slug}.org" "#+title: Idea: ${title}\n#+filetags: idea\n\n")
              :unnarrowed t)
             ))
     (setq org-roam-dailies-capture-templates
           '(("d" "default" entry
              "* %<%I:%M %p>: %?"
              :target (file+head "%<%Y-%m-%d>.org"
-                                "#+TITLE: %<%Y-%m-%d>\n\n"))))
+                                "#+title: %<%Y-%m-%d>\n\n"))))
     ;; If you're using a vertical completion framework, you might want a more informative completion interface
     (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
     (org-roam-db-autosync-mode)
@@ -694,4 +694,13 @@
 
   (global-set-key (kbd "C-c o r") 'consult-ripgrep-org)
   (global-set-key (kbd "C-c o f") 'find-file-in-org-directory)
+#+end_src
+
+** Org-Crypt
+#+begin_src emacs-lisp
+  (require 'org-crypt)
+  (org-crypt-use-before-save-magic)
+  (setq org-tags-exclude-from-inheritance (quote ("crypt")))
+  (setq org-crypt-key nil)
+  (setq auto-save-default nil)
 #+end_src
