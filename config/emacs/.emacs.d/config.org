@@ -12,27 +12,8 @@
   (scroll-bar-mode -1)
 #+end_src
 
-** Package Archives setup
+** Initial Setup
 #+BEGIN_SRC emacs-lisp
-  ;; (require 'package)
-  ;; (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
-  ;; (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-  ;; (package-initialize)
-
-  ;; (unless (package-installed-p 'use-package)
-  ;;   (package-refresh-contents)
-  ;;   (package-install 'use-package))
-
-  ;; (unless package-archive-contents
-  ;;   (package-refresh-contents))
-
-  ;; ;;Setting use-package-always-ensure to t (meaning “true”) saves us the trouble of having to specify :ensure t in any future packages we’d like to declare and install.
-  ;; ;;The :ensure macro basically makes sure that the packages are correctly installed at every startup, and automatically installs the missing ones for you.
-  ;; ;;This is extremely useful when you frequently move between different machines and need to port your entire Emacs config over to a new setup.
-  ;; (eval-and-compile
-  ;;   (setq use-package-always-ensure t
-  ;; 	use-package-expand-minimally t))
-
   (use-package emacs
     :ensure t
     :init
