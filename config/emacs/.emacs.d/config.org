@@ -650,7 +650,7 @@
              :target (file+head "literature/${slug}.org" "#+title: ${title}\n#+filetags: literature\n\n")
              :unnarrowed t)
             ("i" "Idea" plain "%?"
-             :target (file+head "ideas/${slug}.org" "#+title: Idea: ${title}\n#+filetags: idea\n\n")
+             :target (file+head "ideas/${slug}.org" "#+title: Idea: ${title}\n#+filetags: idea\n#+created: %U\n\n")
              :unnarrowed t)
             ))
     (setq org-roam-dailies-capture-templates
