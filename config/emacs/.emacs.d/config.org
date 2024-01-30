@@ -72,6 +72,8 @@
   (add-to-list 'auto-mode-alist '("\\.cppm\\'" . c++-mode))
   (add-to-list 'auto-mode-alist '("\\.ixx\\'" . c++-mode))
 
+  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+
   (defun treesit-install-all-grammars () (interactive)
          (dolist (lang treesit-language-source-alist)
            (unless (treesit-language-available-p (car lang))
