@@ -718,3 +718,9 @@
   (use-package eat
     :ensure t)
 #+end_src
+
+** Ediff
+#+begin_src emacs-lisp
+  (setq ediff-split-window-function 'split-window-horizontally)
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain)
+#+end_src
