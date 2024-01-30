@@ -19,8 +19,10 @@
     :init
     (setq use-package-always-ensure t)
     (setenv "SSH_AUTH_SOCK" (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket | tr -d '\n'"))
-    (add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
-    (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+    (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("melpa-stable" . "https://stable.melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
     ;; (unless (package-installed-p 'vc-use-package)
     ;;   (package-vc-install "https://github.com/slotThe/vc-use-package"))
     )
@@ -559,53 +561,55 @@
 ** Org mode
 #+begin_src emacs-lisp
   (use-package org
+    :ensure t
+    :pin org
     :custom
     (org-directory (file-truename "~/org/"))
     (org-agenda-files '("~/org/inbox.org"
-			"~/org/meetings.org"
-			"~/org/projects.org"
-			"~/org/journal.org"
-			"~/org/notes.org"
-			"~/org/bookmarks.org"
-			"~/org/habits.org"))
+                        "~/org/meetings.org"
+                        "~/org/projects.org"
+                        "~/org/journal.org"
+                        "~/org/notes.org"
+                        "~/org/bookmarks.org"
+                        "~/org/habits.org"))
     (org-startup-indented t)
     :bind (
-	   ("C-c l" . org-store-link)
-	   ("C-c a" . org-agenda)
-	   ("C-c c" . org-capture))
+           ("C-c l" . org-store-link)
+           ("C-c a" . org-agenda)
+           ("C-c c" . org-capture))
     :config
     (setq org-status-folded 'showall)
     (setq org-return-follows-link t)
     (setq org-capture-templates
-	  '(
-	    ("t" "Todo" entry (file "~/org/inbox.org")
-	     "* TODO %?\n  %i\n  %a")
-	    ("m" "Meeting" entry (file "~/org/meetings.org")
-	     "* MEETING with %? :meeting:\n%U\n** Participants\n- [ ] \n** Agenda\n** Notes\n")
-	    ("p" "Project Task" entry (file+headline "~/org/projects.org" "Projects")
-	     "* TODO %? :project:\n  %i\n  %a")
-	    ("j" "Journal" entry (file+datetree "~/org/journal.org")
-	     "* %?\nEntered on %U\n  %i\n  %a")
-	    ("n" "Quick Note" entry (file "~/org/notes.org")
-	     "* %? :note:\n%U\n  %i\n  %a")
-	    ("b" "Bookmark" entry (file+headline "~/org/bookmarks.org" "Bookmarks")
-	     "* %? :bookmark:\n%U\n  %(org-cliplink-capture)\n  %i\n  %a")
-	    ("h" "Habit" entry (file "~/org/habits.org")
-	     "* NEXT %?\n  SCHEDULED: %t .+1d\n  :PROPERTIES:\n  :STYLE: habit\n  :REPEAT_TO_STATE: NEXT\n  :END:\n")
-	    )
-	  )
+          '(
+            ("t" "Todo" entry (file "~/org/inbox.org")
+             "* TODO %?\n  %i\n  %a")
+            ("m" "Meeting" entry (file "~/org/meetings.org")
+             "* MEETING with %? :meeting:\n%U\n** Participants\n- [ ] \n** Agenda\n** Notes\n")
+            ("p" "Project Task" entry (file+headline "~/org/projects.org" "Projects")
+             "* TODO %? :project:\n  %i\n  %a")
+            ("j" "Journal" entry (file+datetree "~/org/journal.org")
+             "* %?\nEntered on %U\n  %i\n  %a")
+            ("n" "Quick Note" entry (file "~/org/notes.org")
+             "* %? :note:\n%U\n  %i\n  %a")
+            ("b" "Bookmark" entry (file+headline "~/org/bookmarks.org" "Bookmarks")
+             "* %? :bookmark:\n%U\n  %(org-cliplink-capture)\n  %i\n  %a")
+            ("h" "Habit" entry (file "~/org/habits.org")
+             "* NEXT %?\n  SCHEDULED: %t .+1d\n  :PROPERTIES:\n  :STYLE: habit\n  :REPEAT_TO_STATE: NEXT\n  :END:\n")
+            )
+          )
     (setq org-agenda-custom-commands
-	  '(("t" "All TODOs" todo ""
-	     ((org-agenda-files '("~/org/inbox.org" "~/org/projects.org"))))
-	    ("m" "Meetings" agenda ""
-	     ((org-agenda-files '("~/org/meetings.org"))))
-	    ("n" "Notes and Bookmarks" alltodo ""
-	     ((org-agenda-files '("~/org/notes.org" "~/org/bookmarks.org"))))))
+          '(("t" "All TODOs" todo ""
+             ((org-agenda-files '("~/org/inbox.org" "~/org/projects.org"))))
+            ("m" "Meetings" agenda ""
+             ((org-agenda-files '("~/org/meetings.org"))))
+            ("n" "Notes and Bookmarks" alltodo ""
+             ((org-agenda-files '("~/org/notes.org" "~/org/bookmarks.org"))))))
     (setq org-todo-keywords
-	  '((sequence "TODO(t)" "IN-PROGRESS(i)" "|" "DONE(d)")))
+          '((sequence "TODO(t)" "IN-PROGRESS(i)" "|" "DONE(d)")))
     (setq org-log-done 'time)
     (setq org-refile-targets '((nil :maxlevel . 3)
-			       (org-agenda-files :maxlevel . 3)))
+                               (org-agenda-files :maxlevel . 3)))
     (setq org-refile-use-outline-path 'file)
     (setq org-outline-path-complete-in-steps nil)
     )
