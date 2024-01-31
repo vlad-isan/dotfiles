@@ -20,7 +20,7 @@
     (setq use-package-always-ensure t)
     ;; This is for Magit, to be able to use SSH via gpg for git
     (setenv "SSH_AUTH_SOCK" (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket | tr -d '\n'"))
-    
+
     (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
     (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
     (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
@@ -72,7 +72,8 @@
   (add-to-list 'auto-mode-alist '("\\.cppm\\'" . c++-mode))
   (add-to-list 'auto-mode-alist '("\\.ixx\\'" . c++-mode))
 
-  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+  (add-to-list 'auto-mode-alist '("\\.ts\\'" . tsx-mode))
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . tsx-mode))
 
   (defun treesit-install-all-grammars () (interactive)
          (dolist (lang treesit-language-source-alist)
