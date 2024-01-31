@@ -35,10 +35,10 @@
   ;; Your Emacs Lisp code for general settings...
   (setq inhibit-startup-screen t)
   (setq column-number-mode t)
-#+END_SRC
 
-#+RESULTS:
-: t
+  ;; On a UK layout, hashtag is bound to Alt+3, but in Emacs that's usually C-u 3. Either change to US layout (but lose £) or remap M-3 to hashtag
+  (define-key key-translation-map (kbd "M-3") (kbd "#"))
+#+END_SRC
 
 ** Theme Configuration
 #+BEGIN_SRC emacs-lisp
