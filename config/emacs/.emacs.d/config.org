@@ -34,7 +34,11 @@
 #+BEGIN_SRC emacs-lisp
   ;; Your Emacs Lisp code for general settings...
   (setq inhibit-startup-screen t)
+  (setq column-number-mode t)
 #+END_SRC
+
+#+RESULTS:
+: t
 
 ** Theme Configuration
 #+BEGIN_SRC emacs-lisp
