@@ -650,32 +650,32 @@
     (setq org-roam-capture-templates
           '(
             ("z" "Zettel" plain "%?"
-             :target (file+head "zettels/${slug}.org" "#+title: ${title}\n#+filetags:\n#+created: %U\n\n")
+             :target (file+head "zettels/%<%Y-%m-%d-%H-%M-%S>-${slug}.org" "#+TITLE: ${title}\n#+FILETAGS:\n#+CREATED: %U\n\n")
              :unnarrowed t)
             ("m" "Meeting" plain
              "* Participants: %^{Participants}\n* Date: %U\n\n%?"
-             :target (file+head "meetings/${slug}.org" "#+title: Meeting: ${title}\n#+filetags: meeting\n\n")
+             :target (file+head "meetings/%<%Y-%m-%d-%H-%M-%S>-${slug}.org" "#+TITLE: Meeting: ${title}\n#+FILETAGS: meeting\n\n")
              :unnarrowed t)
             ("p" "Project" plain
              "* Objective: %^{Objective}\n* Key Results: %?\n* Deadline: %^t"
-             :target (file+head "projects/${slug}.org" "#+title: ${title}\n#+filetags: project\n\n")
+             :target (file+head "projects/%<%Y-%m-%d-%H-%M-%S>-${slug}.org" "#+TITLE: ${title}\n#+FILETAGS: project\n\n")
              :unnarrowed t)
             ("j" "Journal" plain "%?"
-             :target (file+head "journal/%<%Y-%m-%d>.org" "#+title: Journal Entry: %<%Y-%m-%d>\n#+filetags: journal\n\n")
+             :target (file+head "journal/%<%Y-%m-%d>.org" "#+TITLE: Journal Entry: %<%Y-%m-%d>\n#+FILETAGS: journal\n\n")
              :unnarrowed t)
             ("l" "Literature" plain
              "* Source: %^{Source}\n* Author: %^{Author}\n* Key Insights: %?\n* Link: %^{Link}"
-             :target (file+head "literature/${slug}.org" "#+title: ${title}\n#+filetags: literature\n\n")
+             :target (file+head "literature/%<%Y-%m-%d-%H-%M-%S>-${slug}.org" "#+TITLE: ${title}\n#+FILETAGS: literature\n\n")
              :unnarrowed t)
             ("i" "Idea" plain "%?"
-             :target (file+head "ideas/${slug}.org" "#+title: Idea: ${title}\n#+filetags: idea\n#+created: %U\n\n")
+             :target (file+head "ideas/%<%Y-%m-%d-%H-%M-%S>-${slug}.org" "#+TITLE: Idea: ${title}\n#+FILETAGS: idea\n#+CREATED: %U\n\n")
              :unnarrowed t)
             ))
     (setq org-roam-dailies-capture-templates
           '(("d" "default" entry
              "* %<%I:%M %p>: %?"
              :target (file+head "%<%Y-%m-%d>.org"
-                                "#+title: %<%Y-%m-%d>\n\n"))))
+                                "#+TITLE: %<%Y-%m-%d>\n\n"))))
     ;; If you're using a vertical completion framework, you might want a more informative completion interface
     (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
     (org-roam-db-autosync-mode)
