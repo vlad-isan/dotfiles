@@ -55,13 +55,23 @@ brew install \
     fd \
     ffmpeg \
     gawk \
+    gcc \
     gh \
+    giflib \
     git \
     gnupg \
+    gnutls \
     gopls \
     haskell-language-server \
+    imagemagick \
+    jansson \
     java \
+    jpeg \
     kotlin-language-server \
+    libgccjit \
+    libpng \
+    librsvg \
+    libtiff \
     llvm \
     lua-language-server \
     lua \
@@ -82,6 +92,8 @@ brew install \
     rustup-init \
     shellcheck \
     steam \
+    texinfo \
+    tree-sitter \
     wget \
     yaml-language-server \
     ykman \

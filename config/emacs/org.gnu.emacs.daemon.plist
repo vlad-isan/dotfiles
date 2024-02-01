@@ -6,7 +6,7 @@
     <string>org.gnu.emacs.daemon</string>
     <key>ProgramArguments</key>
     <array>
-        <string>/opt/homebrew/bin/emacs</string>
+        <string>/Users/vladisan/dev/emacs/src/emacs</string>
         <string>--daemon</string>
     </array>
     <key>RunAtLoad</key>

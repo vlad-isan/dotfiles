@@ -195,6 +195,8 @@ export LDFLAGS="-L/opt/homebrew/opt/llvm/lib/c++ -Wl,-rpath,/opt/homebrew/opt/ll
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/dev/emacs/src:$PATH"
+export PATH="$HOME/dev/emacs/lib-src:$PATH"
 export PATH=$(brew --prefix openssh)/bin:$PATH
 export PATH=$(brew --prefix postgresql@15)/bin:$PATH
 
