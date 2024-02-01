@@ -55,10 +55,7 @@
           modus-themes-subtle-line-numbers t
           modus-themes-variable-pitch-ui t)
     (setq modus-themes-org-blocks 'gray-background) ;; {nil,'gray-background,'tinted-background}
-
-    (if (display-graphic-p)
-        (modus-themes-load-theme 'modus-vivendi-tinted)
-      (modus-themes-load-theme 'modus-vivendi)))
+    (modus-themes-load-theme 'modus-vivendi-tinted))
 #+END_SRC
 
 ** Font Configuration

@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict>
+  <dict>
     <key>Label</key>
     <string>org.gnu.emacs.daemon</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>PATH</key>
+      <string>/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/vladisan/dev/emacs/src:/Users/vladisan/dev/emacs/lib-src:/opt/homebrew/opt/openssh/bin:/opt/homebrew/bin</string>
+      <!-- Add other environment variables here if needed -->
+      <key>GPG_TTY</key>
+      <string>$(tty)</string>
+      <key>SSH_AUTH_SOCK</key>
+      <string>$(gpgconf --list-dirs agent-ssh-socket)</string>
+    </dict>
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/vladisan/dev/emacs/src/emacs</string>
-        <string>--daemon</string>
+      <string>/Users/vladisan/dev/emacs/src/emacs</string>
+      <string>--daemon</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
-</dict>
+  </dict>
 </plist>
