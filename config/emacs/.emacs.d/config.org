@@ -85,6 +85,8 @@
   (add-to-list 'auto-mode-alist '("\\.cmake\\'" . cmake-mode))
   (add-to-list 'auto-mode-alist '("CMakeLists\\.txt\\'" . cmake-mode))
 
+  (add-to-list 'auto-mode-alist '("\\.qml\\'" . qml-mode))
+
   (defun treesit-install-all-grammars () (interactive)
          (dolist (lang treesit-language-source-alist)
            (unless (treesit-language-available-p (car lang))
@@ -112,17 +114,19 @@
             (make "https://github.com/alemuller/tree-sitter-make")
             (markdown "https://github.com/ikatyang/tree-sitter-markdown")
             (python "https://github.com/tree-sitter/tree-sitter-python")
+            (qml "https://github.com/yuja/tree-sitter-qmljs")
+            (ruby . ("https://github.com/tree-sitter/tree-sitter-ruby"))
+            (rust "https://github.com/tree-sitter/tree-sitter-rust")
             (toml "https://github.com/tree-sitter/tree-sitter-toml")
             (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
             (typescript . ("https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src"))
-            (ruby . ("https://github.com/tree-sitter/tree-sitter-ruby"))
-            (rust "https://github.com/tree-sitter/tree-sitter-rust")
             (yaml . ("https://github.com/ikatyang/tree-sitter-yaml"))
             )
           )
     (setq treesit-load-name-override-list '((c++ "libtree-sitter-cpp" "tree_sitter_cpp")))
     (setq treesit-load-name-override-list '((csharp "libtree-sitter-c-sharp")))
     (setq treesit-load-name-override-list '((js "libtree-sitter-javascript" "tree_sitter_javascript")))
+    (setq treesit-load-name-override-list '((qml "libtree-sitter-qml" "tree_sitter_qmljs")))
     :config
     (treesit-install-all-grammars)
     (setq major-mode-remap-alist
@@ -144,11 +148,12 @@
             (make-mode . make-ts-mode)
             (markdown-mode . markdown-ts-mode)
             (python-mode . python-ts-mode)
+            (qml-mode . qml-ts-mode)
             (ruby-mode . ruby-ts-mode)
+            (rust-mode . rust-ts-mode)
             (toml-mode . toml-ts-mode)
             (tsx-mode . tsx-ts-mode)
             (typescript-mode . typescript-ts-mode)
-            (rust-mode . rust-ts-mode)
             (yaml-mode . yaml-ts-mode)
             )
           )
@@ -180,11 +185,12 @@
     (make-ts-mode . eglot-esnure)
     (markdown-ts-mode . eglot-ensure)
     (python-ts-mode . eglot-ensure)
+    (qml-ts-mode . eglot-ensure)
     (ruby-ts-mode . eglot-ensure)
+    (rust-ts-mode . eglot-ensure)
     (toml-ts-mode . eglot-ensure)
     (tsx-ts-mode . eglot-ensure)
     (typescript-ts-mode . eglot-ensure)
-    (rust-ts-mode . eglot-ensure)
     (yaml-ts-mode . eglot-ensure)
     )
 
@@ -652,7 +658,7 @@
     :config
     (setq org-roam-capture-templates
           '(
-            ("z" "Zettel" plain "%?"
+            ("z" "Zettel" plain "%?\n %i\n %a"
              :target (file+head "zettels/%<%Y-%m-%d-%H-%M-%S>-${slug}.org" "#+TITLE: ${title}\n#+FILETAGS:\n#+CREATED: %U\n\n")
              :unnarrowed t)
             ("m" "Meeting" plain
