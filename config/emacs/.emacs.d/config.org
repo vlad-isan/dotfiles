@@ -40,6 +40,12 @@
   (define-key key-translation-map (kbd "M-3") (kbd "#"))
 #+END_SRC
 
+** Repeat-mode
+
+#+begin_src emacs-lisp
+  (repeat-mode 1)
+#+end_src
+
 ** Theme Configuration
 #+BEGIN_SRC emacs-lisp
   ;; Install gruvbox themesx
