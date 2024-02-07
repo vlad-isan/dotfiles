@@ -1,5 +1,10 @@
 * Emacs Configuration
 
+** Early Init
+#+begin_src emacs-lisp
+  (setq package-enable-at-startup nil)
+#+end_src
+
 ** Setup Minimal Frame
 #+begin_src emacs-lisp
   ;; Disable toolbar
@@ -11,6 +16,28 @@
   ;; Disable scroll bar
   (scroll-bar-mode -1)
 #+end_src
+
+** Straight
+#+begin_src emacs-lisp
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+         (expand-file-name
+          "straight/repos/straight.el/bootstrap.el"
+          (or (bound-and-true-p straight-base-dir)
+              user-emacs-directory)))
+        (bootstrap-version 7))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+           'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+
+  (straight-use-package 'use-package)
+#+end_src
+
 
 ** Initial Setup
 #+BEGIN_SRC emacs-lisp
@@ -737,3 +764,22 @@
   (setq ediff-split-window-function 'split-window-horizontally)
   (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 #+end_src
+
+** Copilot
+#+begin_src emacs-lisp
+  ;;(use-package copilot
+    ;;:straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el"))
+    ;;:ensure t
+    ;;:hook (prog-mode . copilot-mode)
+    ;;:bind (:map copilot-completion-map
+                ;;("<tab>" . 'copilot-accept-completion)
+                ;;("TAB" . 'copilot-accept-completion)
+                ;;("C-TAB" . 'copilot-accept-completion-by-word)
+                ;;("C-<tab>" . 'copilot-accept-completion-by-word))
+    ;;:config
+    ;;(add-to-list 'copilot-major-mode-alist '("c++-ts" . "cpp"))
+    ;;)
+  ;; you can utilize :map :hook and :config to customize copilot
+#+end_src
+
+
