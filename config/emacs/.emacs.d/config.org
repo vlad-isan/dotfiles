@@ -821,8 +821,10 @@
       :endpoint "/chat/completions"
       :stream t
       :models '(
-                "codellama-34b-instruct"
+                "codellama-70b-instruct"
+                "llama-2-70b-chat"
                 "mixtral-8x7b-instruct"
+                "pplx-70b-chat"
                 "pplx-70b-online"
                 )
       )
