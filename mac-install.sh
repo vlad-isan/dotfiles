@@ -22,6 +22,7 @@ brew install --cask \
     font-jetbrains-mono \
     google-chrome \
     jetbrains-toolbox \
+    karabiner-elements \
     keymapp \
     kitty \
     microsoft-remote-desktop \
