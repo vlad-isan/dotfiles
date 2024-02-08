@@ -16,8 +16,9 @@ mkdir -p $EMACS_DEV_DIR $EMACS_GIT_DIR
 
 ln -sfnvh ${EMACS_ORG_DIR} $HOME
 
-
 ln -sfnvh ${DOTFILES_DIR}/config/emacs/org.gnu.emacs.daemon.plist ${EMACS_LAUNCH_AGENT_DIR}
+
+cp ${DOTFILES_DIR}/config/emacs/.authinfo $HOME
 
 ln -sfnvh ${DOTFILES_DIR}/config/emacs/.emacs.d/init.el ${EMACS_CONFIG_DIR}
 ln -sfnvh ${DOTFILES_DIR}/config/emacs/.emacs.d/config.org ${EMACS_CONFIG_DIR}
@@ -35,7 +36,7 @@ CPPFLAGS="-I/opt/homebrew/opt/jpeg/include" \
     LDFLAGS="-L/opt/homebrew/opt/jpeg/lib" \
     ./configure --with-native-compilation=aot --with-tree-sitter \
     --with-gif --with-png --with-jpeg --with-json --with-mailutils --with-rsvg --with-tiff \
-    --with-imagemagick --with-xwidgets
+    --with-imagemagick --with-xwidgets --with-ns
 
 make
 make install
