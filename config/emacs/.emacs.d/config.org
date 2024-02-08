@@ -770,18 +770,17 @@
 
 ** Copilot
 #+begin_src emacs-lisp
-  ;;(use-package copilot
-    ;;:straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el"))
-    ;;:ensure t
-    ;;:hook (prog-mode . copilot-mode)
-    ;;:bind (:map copilot-completion-map
-                ;;("<tab>" . 'copilot-accept-completion)
-                ;;("TAB" . 'copilot-accept-completion)
-                ;;("C-TAB" . 'copilot-accept-completion-by-word)
-                ;;("C-<tab>" . 'copilot-accept-completion-by-word))
-    ;;:config
-    ;;(add-to-list 'copilot-major-mode-alist '("c++-ts" . "cpp"))
-    ;;)
+  (use-package copilot
+    :straight (:host github :repo "copilot-emacs/copilot.el" :files ("dist" "*.el"))
+    :ensure t
+    :hook (prog-mode . copilot-mode)
+    :bind (:map copilot-completion-map
+                ("<tab>" . 'copilot-accept-completion)
+                ("TAB" . 'copilot-accept-completion)
+                ("C-TAB" . 'copilot-accept-completion-by-word)
+                ("C-<tab>" . 'copilot-accept-completion-by-word))
+    :config
+    )
   ;; you can utilize :map :hook and :config to customize copilot
 #+end_src
 
