@@ -703,6 +703,10 @@
             ("i" "Idea" plain "%?"
              :target (file+head "ideas/%<%Y-%m-%d-%H-%M-%S>-${slug}.org" "#+TITLE: Idea: ${title}\n#+FILETAGS: idea\n#+CREATED: %U\n\n")
              :unnarrowed t)
+            ("r" "Recipe" plain
+             "* Ingredients\n\n* Instructions\n%?"
+             :target (file+head "cooking/%<%Y-%m-%d-%H-%M-%S>-${slug}.org" "#+TITLE: ${title}\n#+FILETAGS: recipe\n#+STARTUP: inlineimages\n\n")
+             :unnarrowed t)
             ))
     (setq org-roam-dailies-capture-templates
           '(("d" "default" entry
