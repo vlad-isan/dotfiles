@@ -78,7 +78,6 @@ brew install \
     lua \
     luarocks \
     mariadb \
-    mysql \
     nasm \
     neovim \
     ninja \
