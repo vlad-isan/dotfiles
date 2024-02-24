@@ -826,12 +826,10 @@
       :stream t
       :models '(
                 "codellama-70b-instruct"
-                "llama-2-70b-chat"
                 "mixtral-8x7b-instruct"
-                "pplx-70b-chat"
-                "pplx-70b-online"
+                "sonar-medium-chat"
+                "sonar-1-medium-online"
                 )
       )
     )
 #+end_src
-
