@@ -828,7 +828,7 @@
                 "codellama-70b-instruct"
                 "mixtral-8x7b-instruct"
                 "sonar-medium-chat"
-                "sonar-1-medium-online"
+                "sonar-medium-online"
                 )
       )
     )
