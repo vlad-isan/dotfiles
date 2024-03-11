@@ -1,2 +1,3 @@
 machine api.openai.com login apikey password <TOKEN>
 machine api.perplexity.ai login apikey password <TOKEN>
+machine console.anthropic.com login apikey password <TOKEN>

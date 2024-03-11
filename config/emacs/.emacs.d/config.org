@@ -790,46 +790,54 @@
 
 ** GPTel
 #+begin_src emacs-lisp
-  (defun my-gptel-mode-hook ()
-    (setq-local org-startup-truncated nil)
-    (setq-local truncate-lines nil)
-    )
-
-  (define-prefix-command 'my-gptel-prefix)
-  (global-set-key (kbd "C-c c") 'my-gptel-prefix)
-
-  (use-package gptel
-    :ensure t
-    :bind (
-           ("C-c c c" . gptel)
-           ("C-c c s" . gptel-send)
-           ("C-c c m" . gptel-menu)
-           )
-    :hook
-    (gptel-mode . my-gptel-mode-hook)
-    :config
-    (setq gptel-api-key (lambda ()
-                          (let ((credential (auth-source-search :host "api.openai.com" :user "apikey" :max 1)))
-                            (if credential
-                                (funcall (plist-get (car credential) :secret))
-                              (error "API key not found in .authinfo")))))
-    (setq-default gptel-default-mode 'org-mode)
-    (setq-default gptel-model "gpt-4-turbo-preview")
-    (gptel-make-openai "Perplexity"
-      :host "api.perplexity.ai"
-      :key (lambda ()
-             (let ((credential (auth-source-search :host "api.perplexity.ai" :user "apikey" :max 1)))
-               (if credential
-                   (funcall (plist-get (car credential) :secret))
-                 (error "API key not found in .authinfo"))))
-      :endpoint "/chat/completions"
-      :stream t
-      :models '(
-                "codellama-70b-instruct"
-                "mixtral-8x7b-instruct"
-                "sonar-medium-chat"
-                "sonar-medium-online"
-                )
+    (defun my-gptel-mode-hook ()
+      (setq-local org-startup-truncated nil)
+      (setq-local truncate-lines nil)
       )
-    )
+
+    (define-prefix-command 'my-gptel-prefix)
+    (global-set-key (kbd "C-c c") 'my-gptel-prefix)
+
+    (use-package gptel
+      :ensure t
+      :bind (
+             ("C-c c c" . gptel)
+             ("C-c c s" . gptel-send)
+             ("C-c c m" . gptel-menu)
+             )
+      :hook
+      (gptel-mode . my-gptel-mode-hook)
+      :config
+      (setq gptel-api-key (lambda ()
+                            (let ((credential (auth-source-search :host "api.openai.com" :user "apikey" :max 1)))
+                              (if credential
+                                  (funcall (plist-get (car credential) :secret))
+                                (error "API key not found in .authinfo")))))
+      (setq-default gptel-default-mode 'org-mode)
+      (setq-default gptel-model "gpt-4-turbo-preview")
+      (gptel-make-openai "Perplexity"
+        :host "api.perplexity.ai"
+        :key (lambda ()
+               (let ((credential (auth-source-search :host "api.perplexity.ai" :user "apikey" :max 1)))
+                 (if credential
+                     (funcall (plist-get (car credential) :secret))
+                   (error "API key not found in .authinfo"))))
+        :endpoint "/chat/completions"
+        :stream t
+        :models '(
+                  "codellama-70b-instruct"
+                  "mixtral-8x7b-instruct"
+                  "sonar-medium-chat"
+                  "sonar-medium-online"
+                  )
+        )
+      (gptel-make-anthropic "Claude"          ;Any name you want
+        :stream t                             ;Streaming responses
+        :key (lambda ()
+               (let ((credential (auth-source-search :host "console.anthropic.com" :user "apikey" :max 1)))
+                 (if credential
+                     (funcall (plist-get (car credential) :secret))
+                   (error "API key not found in .authinfo"))))
+        )
+      )
 #+end_src
