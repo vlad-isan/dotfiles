@@ -834,7 +834,7 @@
       (gptel-make-anthropic "Claude"          ;Any name you want
         :stream t                             ;Streaming responses
         :key (lambda ()
-               (let ((credential (auth-source-search :host "console.anthropic.com" :user "apikey" :max 1)))
+               (let ((credential (auth-source-search :host "api.anthropic.com" :user "apikey" :max 1)))
                  (if credential
                      (funcall (plist-get (car credential) :secret))
                    (error "API key not found in .authinfo"))))
