@@ -55,6 +55,7 @@ brew install \
     deno \
     fd \
     ffmpeg \
+    flyway \
     gawk \
     gcc \
     gh \
