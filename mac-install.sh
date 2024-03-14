@@ -63,6 +63,7 @@ brew install \
     gnupg \
     gnutls \
     gopls \
+    grpc \
     haskell-language-server \
     imagemagick \
     jansson \
