@@ -83,7 +83,7 @@ execute_func_with_prompt bootstrap_crontab "bootstrap the crontab"
 . ./nvim.sh
 
 # Configure emacs
-. ./emacs.sh
+#. ./emacs.sh
 
 # Configure ideavim
 . ./ideavim.sh
